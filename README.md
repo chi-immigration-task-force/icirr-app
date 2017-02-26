@@ -1,12 +1,13 @@
-# Currently Deprecated
-See https://github.com/chi-immigration-task-force/icirr-app-android and https://github.com/chi-immigration-task-force/icirr-app-ios instead
-
 # icirr-app
 
 ## Overview
 This is a cross-platform [Cordova](https://cordova.apache.org/) application.
 
 ## Installation
+### Install yarn
+Follow the instructions [here](https://yarnpkg.com/lang/en/docs/install/#mac-tab).
+Using whatever approach you prefer.
+
 ### Install Cordova
 Instructions directly from cordova are [here](https://cordova.apache.org/docs/en/latest/guide/cli/index.html)
 
