@@ -34,6 +34,8 @@ And you're done! You may need to install more than just that one build tool. If 
 
 ### Install Xcode
 1. Download it from the app store? I think you can also download it directly from the apple developer site, which I usually try to do because then updates don't act as stupidly...
+2. Open Xcode at least once to accept the license agreement and
+  install the command line tools
 
 ## Running the app
 ### Initializing the platforms and plugins
