@@ -46,9 +46,17 @@ Run `./project.sh -i` to initialize and install all the plugins and platforms. *
 Once the platforms are installed, you can run `cordova emulate ios --target="iPad-Air-2, 10.1"` to open the iPad Simulator.
 
 ## Developing
-All the relevant files live in the `www/` directory. Cordova just serves a website from the app's assets to a webview, so
-it's just like developing for any other website. If you want to load external resources, however, you need to whitelist them.
-Endeavor not to do so, however, because it creates a security vulnerability.
+We're doing development like it's a website and then copying the results of a
+production build of the web assets into cordova to generate the native apps.
+To get started, run `yarn && yarn start`. You should then be able to see
+the existing site at `http://localhost:3000/`.
+
+All the website files live in `/web/src`. Feel free to poke around! The
+primary technologies we use are:
+
+1. [React](https://facebook.github.io/react/)
+2. [Redux](http://redux.js.org/)
+
 
 ## Debugging
 ### iOS

@@ -55,16 +55,16 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader?sourceMap',
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: function() {
-                return [
-                  sharedConfig.postcss
-                ];
-              }
-            }
-          },
+          // {
+          //   loader: 'postcss-loader',
+          //   options: {
+          //     plugins: function() {
+          //       return [
+          //         sharedConfig.postcss
+          //       ];
+          //     }
+          //   }
+          // },
           'sass-loader?sourceMap'
         ],
         include: [

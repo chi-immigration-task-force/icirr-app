@@ -1,6 +1,15 @@
+require('../css/index.scss');
+require.context('../images', true, /^\.\//);
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { browserHistory, Router } from 'react-router';
+import routes from './routes';
 
 // Render the main component into the dom
-ReactDOM.render(<App />, document.getElementById('Root'));
+ReactDOM.render(
+  <Router
+    history={browserHistory}
+    routes={routes}
+  />,
+document.getElementById('Root'));
