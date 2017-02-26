@@ -1,9 +1,11 @@
 # icirr-app
 
 ## Overview
-This is a cross-platform [Cordova](https://cordova.apache.org/) application.
+This is a cross-platform [Cordova](https://cordova.apache.org/) application running assets built via webpack.
 
 ## Installation
+First, clone the repository by running `git clone https://github.com/chi-immigration-task-force/icirr-app.git` (or `git clone git@github.com:chi-immigration-task-force/icirr-app.git` if you prefer ssh).
+
 ### Install yarn
 Follow the instructions [here](https://yarnpkg.com/lang/en/docs/install/#mac-tab).
 Using whatever approach you prefer.
