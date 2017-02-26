@@ -19,7 +19,7 @@ Instructions directly from cordova are [here](https://cordova.apache.org/docs/en
   ```
 
   `source` that file or open a new shell, and then run `gem install cocoapods`.
-  To make sure it's installed, check with `which cocoapods`.
+  To make sure it's installed, check with `gem which cocoapods`.
 
 3. Run `pod setup` to sync the cocoapods repo. This takes forever and cordova actually warns you of this. Cocoapods is mostly great, but this part of it fucking sucks.
 
