@@ -43,7 +43,7 @@ And you're done! You may need to install more than just that one build tool. If 
 ### Initializing the platforms and plugins
 Run `./project.sh -i` to initialize and install all the plugins and platforms. **Untested on a new machine. Please let Yonatan know if you hit any issues.**
 
-Once the platforms are installed, you can run `cordova emulate ios --target="iPad-Air-2, 10.1"` to open the iPad Simulator.
+Once the platforms are installed, you can run `cordova emulate ios --target="iPad-Air-2, 10.1"` to open the iPad Simulator. If you hit **xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance**, try running `sudo xcode-select -s /Applications/Xcode.app/Contents/Developer`. If that doesn't work or you want more info, check out [this issue](https://github.com/nodejs/node-gyp/issues/569#issuecomment-255589932).
 
 ## Developing
 We're doing development like it's a website and then copying the results of a
