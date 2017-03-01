@@ -3,12 +3,21 @@
 ## Overview
 This is a cross-platform [Cordova](https://cordova.apache.org/) application running assets built via webpack.
 
+#### Getting started quickly
+We use [github issues](https://github.com/chi-immigration-task-force/icirr-app/issues) to track the tasks we need to do for this project. Right now this hasn't been filled in but I'm hoping to get to it this week...
+
+If you're interested in getting involved technically, all you need to do is clone the repository and [install yarn](https://github.com/chi-immigration-task-force/icirr-app#install-yarn). Then check out the section on [developing](https://github.com/chi-immigration-task-force/icirr-app#developing).
+
+If you don't know React yet, Facebook's [React tutorial](https://facebook.github.io/react/tutorial/tutorial.html) is a good place to start.
+
+If you don't know Javascript yet, this may not be the best project to jump into, but I'm happy to help you learn it in whatever way I can! I have a lot of faith in [Khan Academy's introduction](https://www.khanacademy.org/computing/computer-programming/programming). I think that [Code Academy's](https://www.codecademy.com/learn/learn-javascript) is a bit faster if you already feel comfortable programming, but in a different language. I also generally recommend [Javascript the Good Parts](http://bdcampbell.net/javascript/book/javascript_the_good_parts.pdf) even to experienced developers.
+
 ## Installation
 First, clone the repository by running `git clone https://github.com/chi-immigration-task-force/icirr-app.git` (or `git clone git@github.com:chi-immigration-task-force/icirr-app.git` if you prefer ssh).
 
 ### Install yarn
 Follow the instructions [here](https://yarnpkg.com/lang/en/docs/install/#mac-tab).
-Using whatever approach you prefer.
+Using whatever approach you prefer. Ping @yjkogan if you need help.
 
 ### Install Cordova
 Instructions directly from cordova are [here](https://cordova.apache.org/docs/en/latest/guide/cli/index.html)
