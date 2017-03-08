@@ -9,6 +9,7 @@ module.exports = {
 
   entry: [
     `webpack-dev-server/client?http://${process.env.DEV_SERVER_ADDRESS || '0.0.0.0'}:3000`,
+    'react-hot-loader/patch',
     'webpack/hot/only-dev-server',
     path.join(cwd, 'src/js/index.js'),
   ],
@@ -29,12 +30,6 @@ module.exports = {
     loaders: sharedConfig.loaders.concat([
       {
         test: /\.(js|jsx)$/,
-        loader: 'react-hot-loader',
-        include: [
-          path.join(cwd, 'src/js'),
-        ],
-      }, {
-        test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         options: {
           cacheDirectory: true,
@@ -45,6 +40,7 @@ module.exports = {
           ],
           plugins: [
             require.resolve('babel-plugin-lodash'),
+            require.resolve('react-hot-loader/babel')
           ],
         },
         include: [

@@ -6,6 +6,7 @@ import KnowYourRightsRoute from 'routes/KnowYourRightsRoute';
 import GetInvolvedRoute from 'routes/GetInvolvedRoute';
 import MapRoute from 'routes/MapRoute';
 import NavigationRoute from 'routes/NavigationRoute';
+import SettingsRoute from 'routes/SettingsRoute';
 
 export default [
   <Route key='NavigationRoute' component={NavigationRoute}>
@@ -13,6 +14,7 @@ export default [
     <Route path='/get-involved' component={GetInvolvedRoute} />
     <Route path='/kyr' component={KnowYourRightsRoute} />
     <Route path='/map' component={MapRoute} />
+    <Route path='/settings' component={SettingsRoute} />
   </Route>,
   <Redirect key='FallbackRedirect' from='*' to='/map' />
 ];
