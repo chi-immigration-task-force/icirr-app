@@ -3,7 +3,6 @@ import { Field, reduxForm } from 'redux-form';
 
 import Button from 'components/buttons/Button';
 
-
 class LawyerInfoForm extends React.Component {
   render() {
     const { handleSubmit } = this.props;
