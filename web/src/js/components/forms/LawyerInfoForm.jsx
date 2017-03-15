@@ -1,18 +1,16 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 
 import Button from 'components/buttons/Button';
+import TextInput from 'components/inputs/TextInput';
 
 class LawyerInfoForm extends React.Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <form className='LawyerInfoForm' onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor='phone'>Phone</label>
-          <Field name='phone' component='input' type='text' />
-        </div>
-        <Button type='submit'>Save</Button>
+      <form className='Form Form--fullWidth LawyerInfoForm' onSubmit={handleSubmit}>
+        <TextInput label='Phone' name='phone' />
+        <Button modifierClassName='Button--primary LawyerInfoForm-button' type='submit'>Save</Button>
       </form>
     );
   }
