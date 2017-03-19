@@ -1,10 +1,10 @@
 import _ from 'lodash';
 import { bindActionCreators } from 'redux';
 
-import * as personalInfo from 'actions/PersonalInfoActions';
+import * as settings from 'actions/SettingsActions';
 
 const bundledActions = {
-  personalInfo,
+  settings,
 };
 
 export default function getAllActions(dispatch) {

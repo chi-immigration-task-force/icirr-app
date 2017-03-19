@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
-import personalInfo from 'state/personalInfo';
+import settings from 'state/settings';
 
 export default combineReducers({
   form: formReducer,
-  personalInfo,
+  settings,
 });

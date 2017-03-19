@@ -14,7 +14,7 @@ export default [
     <Route path='/get-involved' component={GetInvolvedRoute} />
     <Route path='/kyr' component={KnowYourRightsRoute} />
     <Route path='/map' component={MapRoute} />
-    <Route path='/settings' component={SettingsRoute} />
   </Route>,
-  <Redirect key='FallbackRedirect' from='*' to='/map' />
+  <Route key='SettingsRoute' path='/settings' component={SettingsRoute} />,
+  <Redirect key='FallbackRedirect' from='*' to='/map' />,
 ];

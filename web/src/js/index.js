@@ -12,7 +12,7 @@ import persistState from 'redux-localstorage';
 import rootReducer from './state';
 
 const enhancer = compose(
-  persistState('personalInfo'),
+  persistState('settings'),
 );
 
 const initialState = undefined; // eslint-disable-line no-undefined

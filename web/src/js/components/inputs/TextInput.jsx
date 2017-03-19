@@ -1,8 +1,13 @@
 import cx from 'classnames';
 import React from 'react';
 import { Field } from 'redux-form';
+import shallowCompare from 'react-addons-shallow-compare';
 
 class TextInput extends React.Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    return shallowCompare(this, nextProps, nextState);
+  }
+
   render() {
     const wrapperClassName = cx(this.props.className, this.props.modifierClassName);
     return (

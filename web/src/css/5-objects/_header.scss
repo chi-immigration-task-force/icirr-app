@@ -3,6 +3,18 @@
   font-size:1.8rem;
   margin-bottom:0.6rem;
   padding:0.6rem 0;
+  position:relative;
   text-align:center;
   width:100%;
+}
+
+.HeaderButton--left {
+  align-items:center;
+  display:flex;
+  font-size:1.2rem;
+  height:100%;
+  left:0;
+  margin-left:0.6rem;
+  position:absolute;
+  top:0;
 }

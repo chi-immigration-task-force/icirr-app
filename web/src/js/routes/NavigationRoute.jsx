@@ -1,13 +1,18 @@
 import React from 'react';
+import shallowCompare from 'react-addons-shallow-compare';
 
 import TabBar from 'components/TabBar';
 
 class NavigationRoute extends React.Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    return shallowCompare(this, nextProps, nextState);
+  }
+
   render() {
     return (
       <div className='NavigationRoute'>
         {this.props.children}
-        <TabBar tabs={NavigationRoute.tabs} />
+        <TabBar tabs={NavigationRoute.tabs} tabClassName='NavigationRoute-tab' />
       </div>
     );
   }

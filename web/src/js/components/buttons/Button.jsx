@@ -1,9 +1,14 @@
 import cx from 'classnames';
 import React from 'react';
+import shallowCompare from 'react-addons-shallow-compare';
 
 import { ifClickable } from 'utils/touchUtils';
 
 class Button extends React.Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    return shallowCompare(this, nextProps, nextState);
+  }
+  
   render() {
     const className = cx(this.props.className, this.props.modifierClassName);
     return (

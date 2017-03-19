@@ -1,22 +1,23 @@
 import React from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 
-class Header extends React.Component {
+class HeaderButtonLeft extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     return shallowCompare(this, nextProps, nextState);
   }
 
   render() {
     return (
-      <div className='Header'>
-        {this.props.children}
+      <div className='HeaderButton--left' onClick={this.props.onClick}>
+        &larr;{this.props.children}
       </div>
     );
   }
 }
 
-Header.propTypes = {
+HeaderButtonLeft.propTypes = {
   children: React.PropTypes.node.isRequired,
+  onClick: React.PropTypes.func.isRequired,
 };
 
-export default Header;
+export default HeaderButtonLeft;
