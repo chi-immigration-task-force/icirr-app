@@ -19,6 +19,9 @@ module.exports = {
   }, {
     test: /\.json$/,
     loaders: ['json-loader']
+  },  {
+    test: /\.md$/,
+    loaders: ['html-loader', 'markdown-loader'],
   }, {
     test: /pdfkit|png-js/,
     loaders: ['transform?brfs'],
@@ -37,9 +40,10 @@ module.exports = {
       'routes': path.join(cwd, './src/js/routes'),
       'selectors': path.join(cwd, './src/js/selectors'),
       'state': path.join(cwd, './src/js/state'),
+      'static': path.join(cwd, './src/static'),
       'utils': path.join(cwd, './src/js/utils'),
     },
-    extensions: ['.json', '.js', '.jsx'],
+    extensions: ['.json', '.js', '.jsx', '.md'],
     modules: [modulesDirectory],
   },
 

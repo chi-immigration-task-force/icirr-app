@@ -2,7 +2,7 @@ import cx from 'classnames';
 import React from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 
-class TabBar extends React.Component {
+class Body extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     return shallowCompare(this, nextProps, nextState);
   }
@@ -11,15 +11,18 @@ class TabBar extends React.Component {
     const className = cx('Body', this.props.className);
     return (
       <div className={className}>
-        {this.props.children}
+        <div className='Body-content'>
+          {this.props.children}
+        </div>
+        <div className='Body-overflowGradient' />
       </div>
     );
   }
 }
 
-TabBar.propTypes = {
+Body.propTypes = {
   children: React.PropTypes.node.isRequired,
   className: React.PropTypes.string,
 };
 
-export default TabBar;
+export default Body;

@@ -1,7 +1,11 @@
 .Header {
-  border-bottom:1px solid $black;
+  align-items:center;
+  background-color:$icirr-dark-purple;
+  color:$white;
+  display:flex;
   font-size:1.8rem;
-  margin-bottom:0.6rem;
+  height:3.3rem;
+  justify-content:center;
   padding:0.6rem 0;
   position:relative;
   text-align:center;

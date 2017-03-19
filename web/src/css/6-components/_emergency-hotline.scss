@@ -1,0 +1,17 @@
+.EmergencyHotline {
+  border:1px solid $black;
+  border-radius:0.3rem;
+  font-size:1.4rem;
+  margin-bottom:1.2rem;
+  padding:1.2rem;
+  > div {
+    margin-bottom:0.6rem;
+  }
+}
+
+.EmergencyHotline-name {
+  font-weight:700;
+}
+
+.EmergencyHotline-number {
+}

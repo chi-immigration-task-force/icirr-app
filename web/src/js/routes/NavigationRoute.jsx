@@ -11,7 +11,9 @@ class NavigationRoute extends React.Component {
   render() {
     return (
       <div className='NavigationRoute'>
-        {this.props.children}
+        <div className='NavigationRoute-content'>
+          {this.props.children}
+        </div>
         <TabBar tabs={NavigationRoute.tabs} tabClassName='NavigationRoute-tab' />
       </div>
     );

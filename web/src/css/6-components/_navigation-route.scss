@@ -4,9 +4,16 @@
   width:100%;
 }
 
+.NavigationRoute-content {
+  height:calc(100% - 5.1rem);
+  position:relative;
+  width:100%;
+}
+
 .NavigationRoute-tab {
   align-items:center;
-  color:$black;
+  background-color:$icirr-dark-purple;
+  color:$white;
   display:flex;
   font-size:1.2rem;
   justify-content:center;
