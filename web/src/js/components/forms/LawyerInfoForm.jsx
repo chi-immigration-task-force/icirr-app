@@ -9,7 +9,7 @@ class LawyerInfoForm extends React.Component {
     const { handleSubmit } = this.props;
     return (
       <form className='Form Form--fullWidth LawyerInfoForm' onSubmit={handleSubmit}>
-        <TextInput label='Phone' name='phone' />
+        <TextInput label="Lawyer's Number" name='phone' />
         <Button modifierClassName='Button--primary LawyerInfoForm-button' type='submit'>Save</Button>
       </form>
     );

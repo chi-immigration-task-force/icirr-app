@@ -1,5 +1,12 @@
+:root {
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  font-size:62.5%; /* 1rem, 1em = 10px */
+}
+
 html, body, #Root {
-  font-family: 'Verdana', Geneva, sans-serif;
+  font-family: 'Raleway', sans-serif;
+  // font-family: 'Roboto', sans-serif;
   height:100%;
   width:100%;
 }
