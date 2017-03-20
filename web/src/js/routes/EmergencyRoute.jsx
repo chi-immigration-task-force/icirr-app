@@ -1,7 +1,8 @@
 import _ from 'lodash';
 import React from 'react';
-import { connect } from 'react-redux';
 import ReactMarkdown from 'react-markdown';
+import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import shallowCompare from 'react-addons-shallow-compare';
 
 import Body from 'components/Body';
@@ -24,7 +25,10 @@ class EmergencyRoute extends React.Component {
           <div className='EmergencyRoute-lawyerNumber'>
             <div className='EmergencyRoute-lawyerNumberLabel'>Call your lawyer:</div>
             <div className='EmergencyRoute-lawyerNumberLink'>
-              <a href={`tel:${this.props.lawyerNumber}`}>{this.props.lawyerNumber}</a>
+              {this.props.lawyerNumber ?
+                <a href={`tel:${this.props.lawyerNumber}`}>{this.props.lawyerNumber}</a>
+              : <Link to='settings'>Set number</Link>
+              }
             </div>
           </div>
           <div className='EmergencyRoute-hotlines'>
