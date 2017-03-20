@@ -1,6 +1,6 @@
 const initialState = {
   language: 'en-us',
-  lawyerNumber: '415-573-5092',
+  lawyerNumber: '',
 };
 
 export default function reducer(state = initialState, action) {
