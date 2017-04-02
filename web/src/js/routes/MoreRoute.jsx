@@ -7,10 +7,10 @@ import shallowCompare from 'react-addons-shallow-compare';
 import actions from 'actions';
 
 import Body from 'components/Body';
-import ICIRRHeader from 'components/ICIRRHeader';
 import LabeledTable from 'components/LabeledTable';
 import LabeledTableRow from 'components/LabeledTableRow';
 import SettingsForm from 'components/forms/SettingsForm';
+import SignupForm from 'components/forms/SignupForm';
 
 class MoreRoute extends React.Component {
   constructor(props) {
@@ -28,10 +28,13 @@ class MoreRoute extends React.Component {
     });
   }
 
+  handleSignup(formData) {
+    console.info(`Submitted form with name ${formData.name} and email ${formData.email}`);
+  }
+
   render() {
     return (
       <Body className='MoreRoute'>
-        <ICIRRHeader />
         <SettingsForm
           initialValues={{
             language: this.props.language,
@@ -43,7 +46,7 @@ class MoreRoute extends React.Component {
             <div className='MoreRoute-aboutLink'>About ICIRR (TODO)</div>
           </LabeledTableRow>
           <LabeledTableRow>
-            Signup form
+            <SignupForm onSubmit={this.handleSignup} />
           </LabeledTableRow>
         </LabeledTable>
       </Body>
@@ -58,7 +61,6 @@ MoreRoute.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  console.debug('state.settings', state.settings);
   return {
     language: state.settings.language,
     lawyerNumber: state.settings.lawyerNumber,

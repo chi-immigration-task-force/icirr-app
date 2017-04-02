@@ -17,6 +17,7 @@ class TextInput extends React.Component {
           className='TextInput-input'
           name={this.props.name}
           onBlur={this.props.onBlur}
+          placeholder={this.props.placeholder}
           component='input'
           type='text' />
       </div>
@@ -26,10 +27,11 @@ class TextInput extends React.Component {
 
 TextInput.propTypes = {
   className: React.PropTypes.string.isRequired,
-  label: React.PropTypes.string.isRequired,
+  label: React.PropTypes.string,
   modifierClassName: React.PropTypes.string.isRequired,
   name: React.PropTypes.string.isRequired,
   onBlur: React.PropTypes.func,
+  placeholder: React.PropTypes.string,
 };
 
 TextInput.defaultProps = {

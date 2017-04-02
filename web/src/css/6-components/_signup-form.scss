@@ -1,0 +1,26 @@
+.SignupForm {}
+
+.SignupForm-submitButton {
+  align-items:center;
+  display:flex;
+  height:3.3rem;
+  justify-content:center;
+  margin-top:1.2rem;
+}
+
+.SignupForm-textInput {
+  background-color:$icirr-pale-purple;
+  border:1px solid $light-grey;
+  border-radius:0.3rem;
+  margin:1.2rem 1.2rem 0;
+  &:last-child {
+    margin-bottom: 0.6rem;
+  }
+  padding:0.6rem 1.2rem;
+  width:calc(100% - 2.4rem);
+}
+
+.SignupForm-title {
+  font-size:1.2rem;
+  margin-bottom:1.2rem;
+}

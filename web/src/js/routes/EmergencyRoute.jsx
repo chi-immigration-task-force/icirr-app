@@ -7,7 +7,6 @@ import shallowCompare from 'react-addons-shallow-compare';
 
 import Body from 'components/Body';
 import EmergencyHotline from 'components/EmergencyHotline';
-import Header from 'components/Header';
 import emergencyKyr from 'static/emergency-kyr';
 
 class EmergencyRoute extends React.Component {
@@ -18,9 +17,6 @@ class EmergencyRoute extends React.Component {
   render() {
     return (
       <div className='EmergencyRoute'>
-        <Header>
-          Emergency
-        </Header>
         <Body>
           <div className='EmergencyRoute-lawyerNumber'>
             <div className='EmergencyRoute-lawyerNumberLabel'>Call your lawyer:</div>

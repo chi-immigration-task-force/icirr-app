@@ -1,12 +1,23 @@
 .Button {
-  background-color:$icirr-green;
-  border:1px solid $black;
   border-radius:0.3rem;
-  height:4.8rem;
+  flex:0 0 auto;
+  height:100%;
   text-align:center;
-  width:100%;
+}
+
+.Button--primary {
+  background-color:$icirr-green;
+  border:none;
+  box-shadow: -0.1rem 0.1rem 0.1rem $light-grey;
+  color:$white;
+  padding:0 1.2rem;
+  &:active, &:focus {
+    background-color:lighten($icirr-green, 10%);
+    box-shadow:none;
+    outline:none;
+  }
 }
 
 .Button-content {
-  font-size:1.4rem;
+  font-size:1.2rem;
 }

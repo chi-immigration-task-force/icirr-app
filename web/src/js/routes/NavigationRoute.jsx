@@ -1,6 +1,7 @@
 import React from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 
+import ICIRRHeader from 'components/ICIRRHeader';
 import TabBar from 'components/TabBar';
 
 class NavigationRoute extends React.Component {
@@ -11,6 +12,7 @@ class NavigationRoute extends React.Component {
   render() {
     return (
       <div className='NavigationRoute'>
+        <ICIRRHeader />
         <div className='NavigationRoute-content'>
           {this.props.children}
         </div>
