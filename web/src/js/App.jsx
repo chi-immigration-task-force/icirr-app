@@ -1,6 +1,3 @@
-require('../css/index.scss');
-require.context('../images', true, /^\.\//);
-
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
