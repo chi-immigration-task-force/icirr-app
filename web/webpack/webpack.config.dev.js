@@ -39,8 +39,8 @@ module.exports = {
             require.resolve('babel-preset-react'),
           ],
           plugins: [
+            require.resolve('react-hot-loader/babel'),
             require.resolve('babel-plugin-lodash'),
-            require.resolve('react-hot-loader/babel')
           ],
         },
         include: [

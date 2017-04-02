@@ -1,12 +1,17 @@
 import React from 'react';
-import shallowCompare from 'react-addons-shallow-compare';
+import { Redirect, Route, Switch } from 'react-router';
 
 import ICIRRHeader from 'components/ICIRRHeader';
 import TabBar from 'components/TabBar';
 
+import EmergencyRoute from 'routes/EmergencyRoute';
+import KnowYourRightsRoute from 'routes/KnowYourRightsRoute';
+import MapRoute from 'routes/MapRoute';
+import MoreRoute from 'routes/MoreRoute';
+
 class NavigationRoute extends React.Component {
-  shouldComponentUpdate(nextProps, nextState) {
-    return shallowCompare(this, nextProps, nextState);
+  shouldComponentUpdate() {
+    return true;
   }
 
   render() {
@@ -14,7 +19,13 @@ class NavigationRoute extends React.Component {
       <div className='NavigationRoute'>
         <ICIRRHeader />
         <div className='NavigationRoute-content'>
-          {this.props.children}
+          <Switch>
+            <Route path='/emergency' component={EmergencyRoute} />
+            <Route path='/more' component={MoreRoute} />
+            <Route path='/kyr' component={KnowYourRightsRoute} />
+            <Route path='/map' component={MapRoute} />
+            <Redirect from='*' to='/map' />
+          </Switch>
         </div>
         <TabBar tabs={NavigationRoute.tabs} tabClassName='NavigationRoute-tab' />
       </div>
@@ -44,7 +55,6 @@ NavigationRoute.tabs = [
 ];
 
 NavigationRoute.propTypes = {
-  children: React.PropTypes.object.isRequired,
 };
 
 export default NavigationRoute;

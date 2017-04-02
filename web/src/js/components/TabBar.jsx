@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import cx from 'classnames';
 import React from 'react';
-import { Link } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
 class TabBar extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class TabBar extends React.Component {
         {_.map(this.props.tabs, (tab) => {
           const linkClassName = cx('TabBar-tab', this.props.tabClassName, tab.className);
           return (
-            <Link key={tab.to}
+            <NavLink key={tab.to}
               activeClassName='TabBar-tabActive'
               className={linkClassName}
               to={tab.to}>
@@ -18,7 +18,7 @@ class TabBar extends React.Component {
               <div className='TabBar-tabName'>
                 {tab.name}
               </div>
-            </Link>
+            </NavLink>
           );
         })}
       </div>
