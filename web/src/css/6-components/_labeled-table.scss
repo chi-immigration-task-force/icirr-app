@@ -1,0 +1,24 @@
+.LabeledTable {
+  margin-top:2.7rem;
+}
+
+.LabeledTable-rows {
+  background-color:$white;
+  padding:0 1.2rem;
+}
+
+.LabeledTable-label {
+  font-weight:bold;
+  font-size:1.4rem;
+  margin:0.6rem 0 0.6rem 1.2rem;
+}
+
+.LabeledTableRow {
+  padding:0.6rem 0;
+  .LabeledTable & {
+    border-bottom:1px solid $light-grey;
+    &:last-child {
+      border-bottom:0;
+    }
+  }
+}

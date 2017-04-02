@@ -13,7 +13,12 @@ class TextInput extends React.Component {
     return (
       <div className={wrapperClassName}>
         {this.props.label && <label className='TextInput-label' htmlFor={this.props.name}>{this.props.label}</label>}
-        <Field className='TextInput-input' name={this.props.name} component='input' type='text' />
+        <Field
+          className='TextInput-input'
+          name={this.props.name}
+          onBlur={this.props.onBlur}
+          component='input'
+          type='text' />
       </div>
     );
   }
@@ -24,6 +29,7 @@ TextInput.propTypes = {
   label: React.PropTypes.string.isRequired,
   modifierClassName: React.PropTypes.string.isRequired,
   name: React.PropTypes.string.isRequired,
+  onBlur: React.PropTypes.func,
 };
 
 TextInput.defaultProps = {

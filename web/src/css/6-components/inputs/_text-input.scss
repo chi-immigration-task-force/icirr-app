@@ -4,7 +4,6 @@
 .TextInput--default {
   align-items:center;
   display:flex;
-  height:4.8rem;
 }
 
 .TextInput-input {
@@ -22,6 +21,30 @@
   .TextInput--default & {
     flex:0 0 auto;
     font-size:1.4rem;
+    margin-right:0.6rem;
+  }
+}
+
+.TextInput--inline {
+  align-items:center;
+  display:flex;
+}
+
+.TextInput-input {
+  .TextInput--inline & {
+    border:1px solid $black;
+    border-radius:0.3rem;
+    flex:1 0 0%;
+    font-size:1.2rem;
+    min-width:0;
+    padding:0.6rem;
+  }
+}
+
+.TextInput-label {
+  .TextInput--inline & {
+    flex:0 0 6.3rem;
+    font-size:1.2rem;
     margin-right:0.6rem;
   }
 }

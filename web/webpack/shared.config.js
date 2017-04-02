@@ -3,7 +3,7 @@ const path = require('path');
 
 const cwd = process.cwd();
 const modulesDirectory = path.resolve('./node_modules');
-const imgRegex = /\.(png|jpg|gif|jpeg|svg)$/;
+const imgRegex = /\.(png|jpg|gif|jpeg|svg|ico)$/;
 
 module.exports = {
   loaders: [{

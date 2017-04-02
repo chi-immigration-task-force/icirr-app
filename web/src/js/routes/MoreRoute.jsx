@@ -8,6 +8,8 @@ import actions from 'actions';
 
 import Body from 'components/Body';
 import ICIRRHeader from 'components/ICIRRHeader';
+import LabeledTable from 'components/LabeledTable';
+import LabeledTableRow from 'components/LabeledTableRow';
 import SettingsForm from 'components/forms/SettingsForm';
 
 class MoreRoute extends React.Component {
@@ -20,12 +22,10 @@ class MoreRoute extends React.Component {
     return shallowCompare(this, nextProps, nextState);
   }
 
-  handleBack() {
-    this.props.router.goBack();
-  }
-
-  handleSubmit(formData) {
-    this.props.actions.settings.setSettings(formData);
+  handleInputBlur(event) {
+    this.props.actions.settings.setSettings({
+      [event.target.name]: event.target.value,
+    });
   }
 
   render() {
@@ -37,7 +37,15 @@ class MoreRoute extends React.Component {
             language: this.props.language,
             lawyerNumber: this.props.lawyerNumber,
           }}
-          onSubmit={this.handleSubmit} />
+          onBlur={this.handleInputBlur} />
+        <LabeledTable label='Get Involved'>
+          <LabeledTableRow>
+            <div className='MoreRoute-aboutLink'>About ICIRR (TODO)</div>
+          </LabeledTableRow>
+          <LabeledTableRow>
+            Signup form
+          </LabeledTableRow>
+        </LabeledTable>
       </Body>
     );
   }
@@ -45,12 +53,12 @@ class MoreRoute extends React.Component {
 
 MoreRoute.propTypes = {
   actions: React.PropTypes.object.isRequired,
-  router: React.PropTypes.object.isRequired,
   language: React.PropTypes.string,
   lawyerNumber: React.PropTypes.string,
 };
 
 const mapStateToProps = (state) => {
+  console.debug('state.settings', state.settings);
   return {
     language: state.settings.language,
     lawyerNumber: state.settings.lawyerNumber,

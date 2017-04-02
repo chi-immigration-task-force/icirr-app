@@ -8,6 +8,7 @@ export default function reducer(state = initialState, action) {
   switch (type) {
     case 'SET_SETTINGS': {
       return {
+        ...state,
         ...payload,
       };
     }
