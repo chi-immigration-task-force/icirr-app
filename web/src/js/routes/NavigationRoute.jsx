@@ -26,19 +26,19 @@ NavigationRoute.tabs = [
     icon: 'ICON',
     name: 'Emergency',
     to: '/emergency',
-  }, {
-    icon: 'ICON',
-    name: 'Get Involved',
-    to: '/get-involved',
-  }, {
+  },{
     icon: 'ICON',
     name: 'Map',
     to: '/map',
   }, {
     icon: 'ICON',
-    name: 'Your Rights',
+    name: 'My Rights',
     to: '/kyr',
-  }
+  }, {
+    icon: 'ICON',
+    name: 'More',
+    to: '/more',
+  },
 ];
 
 NavigationRoute.propTypes = {

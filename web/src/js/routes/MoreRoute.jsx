@@ -7,11 +7,10 @@ import shallowCompare from 'react-addons-shallow-compare';
 import actions from 'actions';
 
 import Body from 'components/Body';
-import Header from 'components/Header';
-import HeaderButtonLeft from 'components/buttons/HeaderButtonLeft';
+import ICIRRHeader from 'components/ICIRRHeader';
 import SettingsForm from 'components/forms/SettingsForm';
 
-class SettingsRoute extends React.Component {
+class MoreRoute extends React.Component {
   constructor(props) {
     super(props);
     autoBind(this);
@@ -31,13 +30,8 @@ class SettingsRoute extends React.Component {
 
   render() {
     return (
-      <Body className='SettingsRoute'>
-        <Header>
-          <HeaderButtonLeft onClick={this.handleBack}>
-            Back
-          </HeaderButtonLeft>
-          Settings
-        </Header>
+      <Body className='MoreRoute'>
+        <ICIRRHeader />
         <SettingsForm
           initialValues={{
             language: this.props.language,
@@ -49,7 +43,7 @@ class SettingsRoute extends React.Component {
   }
 }
 
-SettingsRoute.propTypes = {
+MoreRoute.propTypes = {
   actions: React.PropTypes.object.isRequired,
   router: React.PropTypes.object.isRequired,
   language: React.PropTypes.string,
@@ -63,4 +57,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, actions)(SettingsRoute));
+export default withRouter(connect(mapStateToProps, actions)(MoreRoute));

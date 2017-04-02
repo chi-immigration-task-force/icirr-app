@@ -20,6 +20,12 @@ module.exports = {
     prodDest: path.join(cwd, 'dist'),
   },
 
+  images: {
+    src: path.join(cwd, 'src/images/**'),
+    devDest: path.join(cwd, 'dev/images'),
+    prodDest: path.join(cwd, 'dist/images'),
+  },
+
   lint: {
     src: lintSrc,
     testSrc: testLintSrc,
