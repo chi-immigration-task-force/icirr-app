@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import shallowCompare from 'react-addons-shallow-compare';
 
 import Body from 'components/Body';
