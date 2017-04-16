@@ -22,6 +22,10 @@ class MoreRoute extends React.Component {
     return shallowCompare(this, nextProps, nextState);
   }
 
+  handleAboutClick() {
+    this.props.history.push('/about-icirr');
+  }
+
   handleInputBlur(event) {
     this.props.actions.settings.setSettings({
       [event.target.name]: event.target.value,
@@ -43,7 +47,10 @@ class MoreRoute extends React.Component {
           onBlur={this.handleInputBlur} />
         <LabeledTable label='Get Involved'>
           <LabeledTableRow>
-            <div className='MoreRoute-aboutLink'>About ICIRR (TODO)</div>
+            <div className='MoreRoute-aboutLink' onClick={this.handleAboutClick}>
+              <span className='MoreRoute-aboutLinkText'>About ICIRR</span>
+              <span className='MoreRoute-aboutLinkIcon'>></span>
+            </div>
           </LabeledTableRow>
           <LabeledTableRow>
             <SignupForm onSubmit={this.handleSignup} />
@@ -56,6 +63,9 @@ class MoreRoute extends React.Component {
 
 MoreRoute.propTypes = {
   actions: React.PropTypes.object.isRequired,
+  history: React.PropTypes.shape({
+    push: React.PropTypes.func.isRequired,
+  }).isRequired,
   language: React.PropTypes.string,
   lawyerNumber: React.PropTypes.string,
 };
