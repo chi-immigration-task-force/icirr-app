@@ -12,6 +12,8 @@ import LabeledTableRow from 'components/LabeledTableRow';
 import SettingsForm from 'components/forms/SettingsForm';
 import SignupForm from 'components/forms/SignupForm';
 
+import withTranslate from 'localization/withTranslate';
+
 class MoreRoute extends React.Component {
   constructor(props) {
     super(props);
@@ -31,6 +33,11 @@ class MoreRoute extends React.Component {
       [event.target.name]: event.target.value,
     });
   }
+  handleInputChange(event) {
+    this.props.actions.settings.setSettings({
+      [event.target.name]: event.target.value,
+    });
+  }
 
   handleSignup(formData) {
     console.info(`Submitted form with name ${formData.name} and email ${formData.email}`);
@@ -44,16 +51,18 @@ class MoreRoute extends React.Component {
             language: this.props.language,
             lawyerNumber: this.props.lawyerNumber,
           }}
-          onBlur={this.handleInputBlur} />
-        <LabeledTable label='Get Involved'>
+          onBlur={this.handleInputBlur}
+          onChange={this.handleInputChange}
+          translate={this.props.translate} />
+        <LabeledTable label={this.props.translate('more.getInvolved')}>
           <LabeledTableRow>
             <div className='MoreRoute-aboutLink' onClick={this.handleAboutClick}>
-              <span className='MoreRoute-aboutLinkText'>About ICIRR</span>
+              <span className='MoreRoute-aboutLinkText'>{this.props.translate('more.aboutICIRRLink')}</span>
               <span className='MoreRoute-aboutLinkIcon'>></span>
             </div>
           </LabeledTableRow>
           <LabeledTableRow>
-            <SignupForm onSubmit={this.handleSignup} />
+            <SignupForm onSubmit={this.handleSignup} translate={this.props.translate} />
           </LabeledTableRow>
         </LabeledTable>
       </Body>
@@ -68,6 +77,7 @@ MoreRoute.propTypes = {
   }).isRequired,
   language: React.PropTypes.string,
   lawyerNumber: React.PropTypes.string,
+  translate: React.PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {
@@ -77,4 +87,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, actions)(MoreRoute));
+export default withTranslate(withRouter(connect(mapStateToProps, actions)(MoreRoute)));

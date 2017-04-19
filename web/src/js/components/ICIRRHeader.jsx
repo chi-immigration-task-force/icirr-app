@@ -15,7 +15,7 @@ class ICIRRHeader extends React.Component {
       <Header>
         {_.isFunction(this.props.onBack) &&
           <HeaderButtonLeft onClick={this.props.onBack}>
-            Back
+            {this.props.backButtonText}
           </HeaderButtonLeft>
         }
         <img className='ICIRRHeader-icon' src='/images/favicon.ico' />
@@ -26,6 +26,7 @@ class ICIRRHeader extends React.Component {
 }
 
 ICIRRHeader.propTypes = {
+  backButtonText: React.PropTypes.string,
   onBack: React.PropTypes.func,
 };
 
