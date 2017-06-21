@@ -1,5 +1,6 @@
 import autoBind from 'react-autobind';
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import { withRouter } from 'react-router';
 import shallowCompare from 'react-addons-shallow-compare';
 
@@ -26,7 +27,7 @@ class AboutICIRRRoute extends React.Component {
       <div className='AboutICIRRRoute'>
         <ICIRRHeader backButtonText={this.props.translate('header.back')} onBack={this.handleBack}  />
         <div className='AboutICIRRRoute-content'>
-          {this.props.translate('aboutICIRR.content')}
+          <ReactMarkdown source={this.props.translate('aboutICIRR.content')} />
         </div>
       </div>
     );

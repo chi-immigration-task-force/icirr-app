@@ -1,12 +1,15 @@
 import _ from 'lodash';
 import LocalizedStrings from 'react-localization';
 
+import aboutICIRR from 'static/about-icirr';
+import spanishAboutICIRR from 'static/spanish-about-icirr';
+
 // Since `en` is listed first, it becomes the default language. If any keys are missing
 // it will fall back onto english;
 const strings = new LocalizedStrings({
   en: {
     aboutICIRR: {
-      content: 'About ICIRR goes here',
+      content: aboutICIRR,
     },
     header: {
       back: 'Back',
@@ -37,7 +40,7 @@ const strings = new LocalizedStrings({
   },
   es: {
     aboutICIRR: {
-      content: 'Spanish About ICIRR goes here',
+      content: spanishAboutICIRR,
     },
     header: {
       back: 'Espalda',
