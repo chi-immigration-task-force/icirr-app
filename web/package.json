@@ -2,7 +2,7 @@
   "name": "icirr-web-react",
   "version": "0.0.1",
   "description": "React version of ICIRR app for the web",
-  "main": "index.js",
+  "main": "prodServer.js",
   "license": "MIT",
   "scripts": {
     "preinstall": "./node_modules/gulp/bin/gulp.js build",
@@ -10,7 +10,7 @@
     "start": "./node_modules/gulp/bin/gulp.js"
   },
   "engines": {
-    "node": "6.11.1"
+    "node": "8.1.4"
   },
   "dependencies": {
     "autoprefixer": "^6.7.5",
