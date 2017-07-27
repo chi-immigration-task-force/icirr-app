@@ -49,25 +49,23 @@ module.exports = {
         include: [
           path.join(cwd, 'src/js'),
         ],
-      }, {
+      },  {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          use: [
-            'style-loader',
-            'css-loader?sourceMap',
-            // {
-            //   loader: 'postcss-loader',
-            //   options: {
-            //     plugins: function() {
-            //       return [
-            //         sharedConfig.postcss
-            //       ];
-            //     }
-            //   }
-            // },
-            'sass-loader?sourceMap'
-          ]
-        }),
+        use: [
+          'style-loader',
+          'css-loader?sourceMap',
+          // {
+          //   loader: 'postcss-loader',
+          //   options: {
+          //     plugins: function() {
+          //       return [
+          //         sharedConfig.postcss
+          //       ];
+          //     }
+          //   }
+          // },
+          'sass-loader?sourceMap'
+        ],
         include: [
           path.join(cwd, 'src/css'),
         ],
