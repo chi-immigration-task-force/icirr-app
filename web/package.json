@@ -5,7 +5,8 @@
   "main": "",
   "license": "MIT",
   "scripts": {
-    "postinstall": "cd web && yarn && ./node_modules/gulp/bin/gulp.js build",
+    "preinstall": "cd web",
+    "postinstall": "./node_modules/gulp/bin/gulp.js build",
     "serve": "node prodServer.js",
     "start": "./node_modules/gulp/bin/gulp.js"
   },
