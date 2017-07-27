@@ -1,3 +1,30 @@
 .MapRoute {
   height: 100%;
+  position: relative;
+}
+
+.MapRoute-container {
+  height: calc(100% - 3.6rem);
+}
+
+.MapFilters {
+  display: flex;
+  height: 3.6rem;
+}
+
+.MapFilters-item {
+  border-right: 1px solid black;
+  flex: 1 0 auto;
+  font-size: 1.2rem;
+  line-height: calc(3.6rem - 1.2rem);
+  padding: 0.6rem;
+  text-align: center;
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.MapFilters-item.is-selected {
+  background-color: $icirr-light-purple;
+  color: $white;
 }
