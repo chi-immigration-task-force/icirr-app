@@ -39,8 +39,8 @@ class MapRoute extends React.Component {
           defaultCenter={DOWNTOWN_CHICAGO_LAT_LNG}
           defaultZoom={8}
           options={{
-            streetViewControl: false,
-            disableDefaultUI: true
+            disableDefaultUI: true,
+            zoomControl: true,
           }}
           containerElement={
             <div className='MapRoute-container' />
