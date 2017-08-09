@@ -2,37 +2,64 @@ import _ from 'lodash';
 import autoBind from 'react-autobind';
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 import shallowCompare from 'react-addons-shallow-compare';
+
+import actions from 'actions';
 
 import Body from 'components/Body';
 import EmergencyHotline from 'components/EmergencyHotline';
+import SettingsForm from 'components/forms/SettingsForm';
+
+import withTranslate from 'localization/withTranslate';
 
 class EmergencyRoute extends React.Component {
   constructor(props) {
     super(props);
     autoBind(this);
+    this.state = {
+      editingLawyersNumber: !props.lawyerNumber,
+    };
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     return shallowCompare(this, nextProps, nextState);
   }
 
+  handleInputBlur(event) {
+    this.props.actions.settings.setSettings({
+      [event.target.name]: event.target.value,
+    });
+    this.setState({
+      editingLawyersNumber: false,
+    });
+  }
+
   handleSetLawyerNumber() {
-    this.props.history.push('/more');
+    this.setState({
+      editingLawyersNumber: true,
+    });
   }
 
   render() {
-    const lawyerNumberText = this.props.lawyerNumber ? 'Your Lawyer' : 'Set your lawyer\'s number';
     return (
       <div className='EmergencyRoute'>
         <Body>
           <div className='EmergencyRoute-lawyerNumber'>
-            <EmergencyHotline
-              name={lawyerNumberText}
-              number={this.props.lawyerNumber}
-              onInfoClick={this.handleSetLawyerNumber}
-              />
+            {!this.state.editingLawyersNumber &&
+              <EmergencyHotline
+                name='Your Lawyer'
+                number={this.props.lawyerNumber}
+                onInfoClick={this.handleSetLawyerNumber}
+                />
+            }
+            {this.state.editingLawyersNumber && 
+              <SettingsForm
+                initialValues={{
+                  lawyerNumber: this.props.lawyerNumber,
+                }}
+                onBlur={this.handleInputBlur}
+                translate={this.props.translate} />
+            }
           </div>
           <div className='EmergencyRoute-hotlines'>
             {/*<div className='EmergencyRoute-hotlinesTitle'>
@@ -66,10 +93,9 @@ EmergencyRoute.hotlines = [{
 }];
 
 EmergencyRoute.propTypes = {
-  history: React.PropTypes.shape({
-    push: React.PropTypes.func.isRequired,
-  }).isRequired,
+  actions: React.PropTypes.object.isRequired,
   lawyerNumber: React.PropTypes.string.isRequired,
+  translate: React.PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {
@@ -78,4 +104,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps)(EmergencyRoute));
+export default withTranslate(connect(mapStateToProps, actions)(EmergencyRoute));

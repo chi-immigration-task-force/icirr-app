@@ -1,6 +1,8 @@
 import _ from 'lodash';
 import LocalizedStrings from 'react-localization';
 
+import servicesConstants from 'constants/servicesConstants';
+
 import aboutICIRR from 'static/about-icirr';
 import spanishAboutICIRR from 'static/spanish-about-icirr';
 
@@ -13,6 +15,14 @@ const strings = new LocalizedStrings({
     },
     header: {
       back: 'Back',
+    },
+    map: {
+      filterLabels: {
+        [servicesConstants.hasCitizenshipClasses]: 'Citizenship',
+        [servicesConstants.hasEnglishClasses]: 'English',
+        [servicesConstants.hasLegalAid]: 'Legal Aid',
+        [servicesConstants.hasOutreachAndEducation]: 'Education',
+      },
     },
     more: {
       aboutICIRRLink: 'About ICIRR',
@@ -44,6 +54,14 @@ const strings = new LocalizedStrings({
     },
     header: {
       back: 'Espalda',
+    },
+    map: {
+      filterLabels: {
+        [servicesConstants.hasCitizenshipClasses]: 'Ciudadanía',
+        [servicesConstants.hasEnglishClasses]: 'Inglés',
+        [servicesConstants.hasLegalAid]: 'Abogado',
+        [servicesConstants.hasOutreachAndEducation]: 'Educación',
+      },
     },
     more: {
       aboutICIRRLink: 'Acerca de ICIRR',

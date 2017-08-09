@@ -3,6 +3,8 @@ import cx from 'classnames';
 import React from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 
+import withTranslate from 'localization/withTranslate';
+
 class MapFiltersItem extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +25,7 @@ class MapFiltersItem extends React.Component {
     });
     return (
       <div className={className} onClick={this.handleClick}>
-        {this.props.label}
+        {this.props.translate(`map.filterLabels.${this.props.value}`)}
       </div>
     );
   }
@@ -32,9 +34,9 @@ class MapFiltersItem extends React.Component {
 MapFiltersItem.propTypes = {
   className: React.PropTypes.string.isRequired,
   isSelected: React.PropTypes.bool.isRequired,
-  label: React.PropTypes.string.isRequired,
   onClick: React.PropTypes.func.isRequired,
   value: React.PropTypes.string.isRequired,
+  translate: React.PropTypes.func.isRequired,
 };
 
-export default MapFiltersItem;
+export default withTranslate(MapFiltersItem);

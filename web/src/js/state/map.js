@@ -28,7 +28,7 @@ const markers = _.map(naiPartners, (partner) => {
 
 const initialState = {
   markers,
-  selectedFilter: servicesConstants.all,
+  selectedFilter: servicesConstants.hasCitizenshipClasses,
   selectedMarker: null,
 };
 

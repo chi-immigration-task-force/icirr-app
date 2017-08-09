@@ -28,7 +28,7 @@ class KnowYourRightsRoute extends React.Component {
             <div className='RightsItem-header'>REMAIN SILENT</div>
             <ul className='RightsItem-list'>
               <li>You have the right to remain silent!</li>
-              <li>You can show your 'Knor Your Rights' card</li>
+              <li>You can show your 'Know Your Rights' card</li>
               <li>Remain Calm!</li>
             </ul>
           </div>
@@ -49,7 +49,7 @@ class KnowYourRightsRoute extends React.Component {
           <div className='RightsItem'>
             <div className='RightsItem-header'>IF DETAINED</div>
             <ul className='RightsItem-list'>
-              <li>Don't sign any documents without legal counsel</li>
+              <li>Don't sign any documents without a lawyer</li>
               <li>You have the right to make a call. Call a family member or lawyer to tell them where you are.</li>
               <li>***You will not have access to your cellphone - memorize important phone numbers!***</li>
             </ul>

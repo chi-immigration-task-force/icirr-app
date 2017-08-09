@@ -13,8 +13,6 @@ import GoogleMapWrapper from 'components/map/GoogleMapWrapper';
 import MapFilters from 'components/map/MapFilters';
 import MarkerWithInfoWindow from 'components/map/MarkerWithInfoWindow';
 
-import servicesConstants from 'constants/servicesConstants';
-
 const DOWNTOWN_CHICAGO_LAT_LNG = { lat: 41.8781, lng: -87.6298 };
 
 class MapRoute extends React.Component {
@@ -79,9 +77,6 @@ const markersSelector = createSelector(
   (state) => state.map.markers,
   (state) => state.map.selectedFilter,
   (markers, selectedFilter) => {
-    if (selectedFilter === servicesConstants.all) {
-      return markers;
-    }
     return _.filter(markers, (marker) => {
       return marker.services[selectedFilter];
     });

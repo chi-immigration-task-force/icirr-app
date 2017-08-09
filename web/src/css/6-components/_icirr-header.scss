@@ -1,3 +1,26 @@
 .ICIRRHeader-icon {
   margin-right:0.3rem;
 }
+
+.ICIRRHeader-brand {
+  flex: 1 0 0%;
+}
+
+.Header-languageSelector {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+.ICIRRHeader-languageSelectorOption {
+  border-right: 1px solid $white;
+  flex: 0 0 auto;
+  font-size: 1.0rem;
+  padding: 0 0.6rem;
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.ICIRRHeader-languageSelectorOption.is-selected {
+  color: $icirr-green;
+}

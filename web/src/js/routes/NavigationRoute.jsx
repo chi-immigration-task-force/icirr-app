@@ -1,6 +1,10 @@
 import _ from 'lodash';
 import React from 'react';
+import autoBind from 'react-autobind';
 import { Redirect, Route, Switch } from 'react-router';
+import { connect } from 'react-redux';
+
+import actions from 'actions';
 
 import ICIRRHeader from 'components/ICIRRHeader';
 import TabBar from 'components/TabBar';
@@ -13,8 +17,19 @@ import MoreRoute from 'routes/MoreRoute';
 import withTranslate from 'localization/withTranslate';
 
 class NavigationRoute extends React.Component {
+  constructor(props) {
+    super(props);
+    autoBind(this);
+  }
+
   shouldComponentUpdate() {
     return true;
+  }
+
+  handleSelectLanguage(language) {
+    this.props.actions.settings.setSettings({
+      language,
+    });
   }
 
   render() {
@@ -27,7 +42,9 @@ class NavigationRoute extends React.Component {
     });
     return (
       <div className='NavigationRoute'>
-        <ICIRRHeader />
+        <ICIRRHeader
+          onSelectLanguage={this.handleSelectLanguage}
+          selectedLanguage={this.props.selectedLanguage} />
         <div className='NavigationRoute-content'>
           <Switch>
             <Route path='/emergency' component={EmergencyRoute} />
@@ -45,14 +62,14 @@ class NavigationRoute extends React.Component {
 
 NavigationRoute.tabs = [
   {
+    icon: 'ICON',
+    key: 'map',
+    to: '/map',
+  }, {
     className: 'EmergencyRoute-tab',
     icon: 'ICON',
     key: 'emergency',
     to: '/emergency',
-  },{
-    icon: 'ICON',
-    key: 'map',
-    to: '/map',
   }, {
     icon: 'ICON',
     key: 'myRights',
@@ -65,7 +82,15 @@ NavigationRoute.tabs = [
 ];
 
 NavigationRoute.propTypes = {
+  actions: React.PropTypes.object.isRequired,
+  selectedLanguage: React.PropTypes.string.isRequired,
   translate: React.PropTypes.func.isRequired,
 };
 
-export default withTranslate(NavigationRoute);
+const mapStateToProps = (state) => {
+  return {
+    selectedLanguage: state.settings.language,
+  };
+};
+
+export default withTranslate(connect(mapStateToProps, actions)(NavigationRoute));
