@@ -1,23 +1,21 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 
-class Header extends React.Component {
+import PartnerInfo from 'components/PartnerInfo';
+
+
+class OrganizationListRoute extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     return shallowCompare(this, nextProps, nextState);
   }
 
   render() {
     return (
-      <div className='Header'>
-        {this.props.children}
+      <div className='OrganizationListItem'>
+        <PartnerInfo {...this.props} />
       </div>
     );
   }
 }
 
-Header.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
-export default Header;
+export default OrganizationListRoute;

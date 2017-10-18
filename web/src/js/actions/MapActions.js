@@ -1,7 +1,14 @@
-export function setSelectedFilter(selectedFilter) {
+export function setFilter(filterName) {
   return {
-    type: 'SELECT_FILTER',
-    payload: selectedFilter,
+    type: 'SET_FILTER',
+    payload: filterName,
+  };
+}
+
+export function toggleFilter(filterName) {
+  return {
+    type: 'TOGGLE_FILTER',
+    payload: filterName,
   };
 }
 

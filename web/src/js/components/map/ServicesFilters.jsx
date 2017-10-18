@@ -1,25 +1,26 @@
 import _ from 'lodash';
+import PropTypes from 'prop-types';
 import React from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 
-import MapFiltersItem from 'components/map/MapFiltersItem';
+import ServicesFiltersItem from 'components/map/ServicesFiltersItem';
 
 import { servicesFilterOptions } from 'constants/servicesConstants';
 
-class MapFilters extends React.Component {
+class ServicesFilters extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     return shallowCompare(this, nextProps, nextState);
   }
 
   render() {
     return (
-      <div className='MapFilters'>
+      <div className='ServicesFilters'>
         {_.map(servicesFilterOptions, (option) => {
           return (
-            <MapFiltersItem
+            <ServicesFiltersItem
               key={option.value}
-              className='MapFilters-item'
-              isSelected={option.value === this.props.selectedFilter}
+              className='ServicesFilters-item'
+              isSelected={_.includes(this.props.selectedFilters, option.value)}
               onClick={this.props.onSelect}
               {...option} />
           );
@@ -29,9 +30,9 @@ class MapFilters extends React.Component {
   }
 }
 
-MapFilters.propTypes = {
-  onSelect: React.PropTypes.func.isRequired,
-  selectedFilter: React.PropTypes.string.isRequired,
+ServicesFilters.propTypes = {
+  onSelect: PropTypes.func.isRequired,
+  selectedFilters: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-export default MapFilters;
+export default ServicesFilters;

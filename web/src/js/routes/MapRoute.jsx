@@ -1,17 +1,18 @@
 /* eslint-disable react/jsx-handler-names */
 import autoBind from 'react-autobind';
 import _ from 'lodash';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import shallowCompare from 'react-addons-shallow-compare';
-import { default as MarkerClusterer } from 'react-google-maps/lib/addons/MarkerClusterer';
-import { createSelector } from 'reselect';
+import { default as MarkerClusterer } from 'react-google-maps/lib/components/addons/MarkerClusterer';
 
-import { setSelectedMarker, setSelectedFilter } from 'actions/MapActions';
+import { setSelectedMarker } from 'actions/MapActions';
 
 import GoogleMapWrapper from 'components/map/GoogleMapWrapper';
-import MapFilters from 'components/map/MapFilters';
 import MarkerWithInfoWindow from 'components/map/MarkerWithInfoWindow';
+
+import partnersSelector from 'selectors/partnersSelector';
 
 const DOWNTOWN_CHICAGO_LAT_LNG = { lat: 41.8781, lng: -87.6298 };
 
@@ -25,73 +26,52 @@ class MapRoute extends React.Component {
     return shallowCompare(this, nextProps, nextState);
   }
 
-  handleFilterSelect(filterValue) {
-    this.props.setSelectedFilter(filterValue);
-  }
-
   render() {
     return (
-      <div className='MapRoute'>
-        <MapFilters onSelect={this.handleFilterSelect} selectedFilter={this.props.selectedFilter} />
-        <GoogleMapWrapper
-          defaultCenter={DOWNTOWN_CHICAGO_LAT_LNG}
-          defaultZoom={8}
-          options={{
-            disableDefaultUI: true,
-            zoomControl: true,
-          }}
-          containerElement={
-            <div className='MapRoute-container' />
-          }
-          mapElement={
-            <div style={{ height: '100%' }} />
-          }>
-          <MarkerClusterer
-            averageCenter={ true }
-            enableRetinaIcons={ true }
-            gridSize={ 60 }>
-            {_.map(this.props.markers, (marker) => {
-              return (
-                <MarkerWithInfoWindow
-                  {...marker}
-                  isSelected={marker.id === this.props.selectedMarker}
-                  onClick={this.props.setSelectedMarker} />
-              );
-            })}
-          </MarkerClusterer>
-        </GoogleMapWrapper>
-      </div>
+      <GoogleMapWrapper
+        defaultCenter={DOWNTOWN_CHICAGO_LAT_LNG}
+        defaultZoom={8}
+        options={{
+          disableDefaultUI: true,
+          zoomControl: true,
+        }}
+        containerElement={
+          <div className='MapRoute-container' />
+        }
+        mapElement={
+          <div style={{ height: '100%' }} />
+        }>
+        <MarkerClusterer
+          averageCenter={ true }
+          enableRetinaIcons={ true }
+          gridSize={ 60 }>
+          {_.map(this.props.partners, (marker) => {
+            return (
+              <MarkerWithInfoWindow
+                {...marker}
+                isSelected={marker.id === this.props.selectedMarker}
+                onClick={this.props.setSelectedMarker} />
+            );
+          })}
+        </MarkerClusterer>
+      </GoogleMapWrapper>
     );
   }
 }
 
 MapRoute.propTypes = {
-  markers: React.PropTypes.arrayOf(React.PropTypes.object), // TODO: Better prop types
-  selectedFilter: React.PropTypes.string,
-  selectedMarker: React.PropTypes.string,
-  setSelectedFilter: React.PropTypes.func.isRequired,
-  setSelectedMarker: React.PropTypes.func.isRequired,
+  partners: PropTypes.arrayOf(PropTypes.object), // TODO: Better prop types
+  selectedMarker: PropTypes.string,
+  setSelectedMarker: PropTypes.func.isRequired,
 };
 
-const markersSelector = createSelector(
-  (state) => state.map.markers,
-  (state) => state.map.selectedFilter,
-  (markers, selectedFilter) => {
-    return _.filter(markers, (marker) => {
-      return marker.services[selectedFilter];
-    });
-  }
-);
-
 const actions = {
-  setSelectedFilter,
   setSelectedMarker,
 };
 
 const mapStateToProps = (state) => {
   return {
-    markers: markersSelector(state),
-    selectedFilter: state.map.selectedFilter,
+    partners: partnersSelector(state),
     selectedMarker: state.map.selectedMarker,
   };
 };

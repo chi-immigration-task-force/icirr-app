@@ -1,11 +1,12 @@
-import autoBind from 'react-autobind';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
+import autoBind from 'react-autobind';
 import React from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 
 import withTranslate from 'localization/withTranslate';
 
-class MapFiltersItem extends React.Component {
+class ServicesFiltersItem extends React.Component {
   constructor(props) {
     super(props);
     autoBind(this);
@@ -31,12 +32,12 @@ class MapFiltersItem extends React.Component {
   }
 }
 
-MapFiltersItem.propTypes = {
-  className: React.PropTypes.string.isRequired,
-  isSelected: React.PropTypes.bool.isRequired,
-  onClick: React.PropTypes.func.isRequired,
-  value: React.PropTypes.string.isRequired,
-  translate: React.PropTypes.func.isRequired,
+ServicesFiltersItem.propTypes = {
+  className: PropTypes.string.isRequired,
+  isSelected: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  translate: PropTypes.func.isRequired,
 };
 
-export default withTranslate(MapFiltersItem);
+export default withTranslate(ServicesFiltersItem);
