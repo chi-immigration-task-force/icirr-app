@@ -8,6 +8,11 @@ class PartnerInfo extends React.Component {
     return shallowCompare(this, nextProps, nextState);
   }
 
+  // https://developers.google.com/maps/documentation/urls/guide
+  getGoogleMapsHref(address) {
+    return encodeURI(`https://www.google.com/maps/dir/?api=1&destination=${address}`);
+  }
+
   render() {
     const {
       address, name, phone, website,
@@ -17,10 +22,14 @@ class PartnerInfo extends React.Component {
     return (
       <div className='PartnerInfo'>
         <div className='PartnerInfo-name'>{name}</div>
-        {address && <div className='PartnerInfo-address'>{address}</div>}
+        {address &&
+          <div className='PartnerInfo-address'>
+            <a target='_blank' rel='noopener noreferrer' href={this.getGoogleMapsHref(address)}>{address}</a>
+          </div>
+        }
         {phone && <div className='PartnerInfo-phone'>Phone: {phone}</div>}
         {website &&
-          <a className='PartnerInfo-website' href={href}>
+          <a className='PartnerInfo-website' target='_blank' rel='noopener noreferrer' href={href}>
             {website}
           </a>
         }
