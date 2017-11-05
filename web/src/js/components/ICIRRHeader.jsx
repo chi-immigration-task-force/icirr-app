@@ -8,6 +8,8 @@ import shallowCompare from 'react-addons-shallow-compare';
 import Header from 'components/Header';
 import HeaderButtonLeft from 'components/buttons/HeaderButtonLeft';
 
+import { languageOptions } from 'constants/supportedLanguages';
+
 class LanguageSelectorOption extends React.Component {
   constructor(props) {
     super(props);
@@ -59,7 +61,7 @@ class ICIRRHeader extends React.Component {
           ICIRR
         </div>
         <div className='Header-languageSelector'>
-          {_.map(ICIRRHeader.languageOptions, (option) => {
+          {_.map(languageOptions, (option) => {
             return (
               <LanguageSelectorOption 
                 key={option.value}
@@ -73,14 +75,6 @@ class ICIRRHeader extends React.Component {
     );
   }
 }
-
-ICIRRHeader.languageOptions = [{
-  label: 'EN',
-  value: 'en',
-}, {
-  label: 'ES',
-  value: 'es',
-}];
 
 ICIRRHeader.propTypes = {
   backButtonText: PropTypes.string,

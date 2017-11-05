@@ -1,7 +1,15 @@
+import * as _ from 'lodash';
 import strings from 'localization';
 
+import supportedLanguages from 'constants/supportedLanguages';
+
+const initialLanguage = _.includes(navigator.languages, supportedLanguages.es) ?
+  supportedLanguages.es : supportedLanguages.en;
+
+strings.setLanguage(initialLanguage);
+
 const initialState = {
-  language: 'en',
+  language: initialLanguage,
   lawyerNumber: '',
 };
 
