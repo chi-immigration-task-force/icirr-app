@@ -34,7 +34,7 @@ class PartnerInfo extends React.Component {
         }
         {phone &&
           <div className='PartnerInfo-phone'>
-            {this.props.translate('partner.phone')}: <a href={`tel:${phone}`}>{phone}</a>
+            {this.props.translate('partner.phone')}: <a href={`tel:${phone}`}>{formatPhone(phone.toString())}</a>
           </div>
         }
         {website &&
@@ -56,3 +56,17 @@ PartnerInfo.propTypes = {
 };
 
 export default withTranslate(PartnerInfo);
+
+function formatPhone(phoneNumber) {
+  const numbers = phoneNumber.replace(/\D/g, '');
+  const char = {
+    0:'(',
+    3:') ',
+    6:' - ' 
+  };
+  let formattedNumber = '';
+  for (let i = 0; i < numbers.length; i++) {
+    formattedNumber += (char[i]||'') + numbers[i];
+  }
+  return formattedNumber;
+}
