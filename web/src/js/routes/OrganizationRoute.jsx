@@ -11,6 +11,8 @@ import { toggleFilter } from 'actions/MapActions';
 import FloatyButton from 'components/buttons/FloatyButton';
 import ServicesFilters from 'components/map/ServicesFilters';
 
+import withTranslate from 'localization/withTranslate';
+
 import MapRoute from 'routes/MapRoute';
 import OrganizationListRoute from 'routes/OrganizationListRoute';
 
@@ -55,7 +57,9 @@ class OrganizationRoute extends React.Component {
           />
           <Redirect from='*' to='/orgs/list' />
         </Switch>
-        <FloatyButton onClick={this.toggleView}>{this.isMap() ? 'List' : 'Map'}</FloatyButton>
+        <FloatyButton onClick={this.toggleView}>
+          {this.props.translate(`navigation.${this.isMap() ? 'list' : 'map'}`)}
+        </FloatyButton>
       </div>
     );
   }
@@ -70,6 +74,7 @@ OrganizationRoute.propTypes = {
   }).isRequired,
   selectedFilters: PropTypes.arrayOf(PropTypes.string),
   toggleFilter: PropTypes.func.isRequired,
+  translate: PropTypes.func.isRequired,
 };
 
 const actions = {
@@ -82,4 +87,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, actions)(OrganizationRoute));
+export default withRouter(connect(mapStateToProps, actions)(withTranslate(OrganizationRoute)));

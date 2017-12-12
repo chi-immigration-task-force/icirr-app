@@ -8,16 +8,12 @@ const servicesConstants = keyMirror({
 });
 
 export const servicesFilterOptions = [{
-  label: 'Citizenship',
   value: servicesConstants.hasCitizenshipClasses,
 }, {
-  label: 'English classes',
   value: servicesConstants.hasEnglishClasses,
 }, {
-  label: 'Legal aid',
   value: servicesConstants.hasLegalAid,
 }, {
-  label: 'In my community',
   value: servicesConstants.hasOutreachAndEducation,
 }];
 

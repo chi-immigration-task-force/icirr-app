@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 
+import withTranslate from 'localization/withTranslate';
+
 class ServiceListItem extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     return shallowCompare(this, nextProps, nextState);
@@ -10,7 +12,9 @@ class ServiceListItem extends React.Component {
   render() {
     return (
       <div className='DiscoverRoute-servicesListItem' name={this.props.value} onClick={this.props.onClick}>
-        <span className='DiscoverRoute-servicesListItemLabel'>{this.props.label}</span>
+        <span className='DiscoverRoute-servicesListItemLabel'>
+          {this.props.translate(`discover.items.${this.props.value}`)}
+        </span>
         <span className='DiscoverRoute-servicesListItemArrow'>></span>
       </div>
     );
@@ -18,9 +22,9 @@ class ServiceListItem extends React.Component {
 }
 
 ServiceListItem.propTypes = {
-  label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  translate: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
 };
 
-export default ServiceListItem;
+export default withTranslate(ServiceListItem);

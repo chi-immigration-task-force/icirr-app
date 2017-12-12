@@ -3,16 +3,13 @@ import LocalizedStrings from 'react-localization';
 
 import servicesConstants from 'constants/servicesConstants';
 
-import aboutICIRR from 'static/about-icirr';
-import spanishAboutICIRR from 'static/spanish-about-icirr';
+import kyr from 'static/kyr';
+import kyrSpanish from 'static/kyr-spanish';
 
 // Since `en` is listed first, it becomes the default language. If any keys are missing
 // it will fall back onto english;
 const strings = new LocalizedStrings({
   en: {
-    aboutICIRR: {
-      content: aboutICIRR,
-    },
     header: {
       back: 'Back',
     },
@@ -21,8 +18,15 @@ const strings = new LocalizedStrings({
       footerText: 'Built with love by',
       header: 'I need help with...',
       items: {
+        [servicesConstants.hasCitizenshipClasses]: 'Citizenship',
+        [servicesConstants.hasEnglishClasses]: 'English Classes',
+        [servicesConstants.hasLegalAid]: 'Legal Aid',
+        [servicesConstants.hasOutreachAndEducation]: 'In my community',
         kyr: 'My rights',
       },
+    },
+    kyr: {
+      content: kyr,
     },
     map: {
       filterLabels: {
@@ -32,44 +36,33 @@ const strings = new LocalizedStrings({
         [servicesConstants.hasOutreachAndEducation]: 'Education',
       },
     },
-    more: {
-      aboutICIRRLink: 'About ICIRR',
-      getInvolved: 'Get Involved',
-    },
     navigation: {
-      tabs: {
-        emergency: 'Emergency',
-        map: 'Map',
-        more: 'More',
-        myRights: 'My Rights',
-      },
+      list: 'List',
+      map: 'Map',
     },
-    settings: {
-      header: 'Settings',
-      languageLabel: 'Language',
-      lawyerNumberLabel:'Lawyer\'s number',
-    },
-    signup: {
-      buttonText: 'Sign Up',
-      emailPlaceholder: 'Email',
-      namePlaceholder: 'Name',
-      title: 'Join the movement to Rise Up & Organize',
+    partner: {
+      getDirections: 'Get Directions',
+      phone: 'Phone',
     },
   },
   es: {
-    aboutICIRR: {
-      content: spanishAboutICIRR,
-    },
     header: {
-      back: 'Espalda',
+      back: 'Regrese',
     },
     discover: {
-      footerLink: '(SP) ICIRR',
-      footerText: '(SP) Built with love by',
-      header: '(SP) I need help with...',
+      footerLink: 'ICIRR',
+      footerText: 'Desarrollado con cariño por',
+      header: 'Necesito ayuda con...',
       items: {
-        kyr: '(SP) My rights',
+        [servicesConstants.hasCitizenshipClasses]: 'Ciudadanía',
+        [servicesConstants.hasEnglishClasses]: 'Clases de inglés',
+        [servicesConstants.hasLegalAid]: 'Ayuda Legal',
+        [servicesConstants.hasOutreachAndEducation]: 'En mi comunidad',
+        kyr: 'Mis derechos',
       },
+    },
+    kyr: {
+      content: kyrSpanish,
     },
     map: {
       filterLabels: {
@@ -79,28 +72,13 @@ const strings = new LocalizedStrings({
         [servicesConstants.hasOutreachAndEducation]: 'Educación',
       },
     },
-    more: {
-      aboutICIRRLink: 'Acerca de ICIRR',
-      getInvolved: 'Involucrarse',
-    },
     navigation: {
-      tabs: {
-        emergency: 'Emergencia',
-        map: 'Mapa',
-        more: 'Más',
-        myRights: 'Mis Derechos',
-      },
+      list: 'Lista',
+      map: 'Mapa',
     },
-    settings: {
-      header: 'Ajustes',
-      languageLabel: 'Idioma',
-      lawyerNumberLabel: 'Número de abogado',
-    },
-    signup: {
-      buttonText: 'Regístrate',
-      emailPlaceholder: 'Email',
-      namePlaceholder: 'Nombre',
-      title: 'Únete al movimiento de Rise Up & Organize',
+    partner: {
+      getDirections: 'Obtenga las direcciones',
+      phone: 'Teléfono',
     },
   },
 });

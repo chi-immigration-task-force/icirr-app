@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 
+import withTranslate from 'localization/withTranslate';
+
 class PartnerInfo extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     return shallowCompare(this, nextProps, nextState);
@@ -24,10 +26,17 @@ class PartnerInfo extends React.Component {
         <div className='PartnerInfo-name'>{name}</div>
         {address &&
           <div className='PartnerInfo-address'>
-            <a target='_blank' rel='noopener noreferrer' href={this.getGoogleMapsHref(address)}>{address}</a>
+            {address}&nbsp;
+            (<a target='_blank' rel='noopener noreferrer' href={this.getGoogleMapsHref(address)}>
+              {this.props.translate('partner.getDirections')}
+            </a>)
           </div>
         }
-        {phone && <div className='PartnerInfo-phone'>Phone: {phone}</div>}
+        {phone &&
+          <div className='PartnerInfo-phone'>
+            {this.props.translate('partner.phone')}: <a href={`tel:${phone}`}>{phone}</a>
+          </div>
+        }
         {website &&
           <a className='PartnerInfo-website' target='_blank' rel='noopener noreferrer' href={href}>
             {website}
@@ -42,7 +51,8 @@ PartnerInfo.propTypes = {
   address: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   phone: PropTypes.number.isRequired,
+  translate: PropTypes.func.isRequired,
   website: PropTypes.string.isRequired,
 };
 
-export default PartnerInfo;
+export default withTranslate(PartnerInfo);
