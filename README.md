@@ -82,5 +82,5 @@ Because our website is in a subdirectory, heroku freaks out if we push the whole
 to just push the subdirectory. This solution is from [stackoverflow](https://stackoverflow.com/questions/7539382/how-can-i-deploy-push-only-a-subdirectory-of-my-git-repo-to-heroku)
 
 ```sh
-git subtree push --prefix output heroku master
+git subtree push --prefix web heroku master
 ```
