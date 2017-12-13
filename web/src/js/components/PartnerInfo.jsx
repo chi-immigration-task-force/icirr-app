@@ -26,9 +26,10 @@ class PartnerInfo extends React.Component {
         <div className='PartnerInfo-name'>{name}</div>
         {address &&
           <div className='PartnerInfo-address'>
-            <a target='_blank' rel='noopener noreferrer' href={this.getGoogleMapsHref(address)}>
-              {address}
-            </a>
+            {address}&nbsp;
+            (<a target='_blank' rel='noopener noreferrer' href={this.getGoogleMapsHref(address)}>
+              {this.props.translate('partner.getDirections')}
+            </a>)
           </div>
         }
         {phone &&
