@@ -54,7 +54,7 @@ const strings = new LocalizedStrings({
       footerLink: 'ICIRR',
       footerText: 'Desarrollado con cariño por',
       infoHeader: 'Estoy buscando información de...',
-      orgHeader: 'Necesito que alguien me ayude...',
+      orgHeader: 'Necesito que alguien me ayude con...',
       items: {
         [servicesConstants.hasCitizenshipClasses]: 'Ciudadanía',
         [servicesConstants.hasEnglishClasses]: 'Clases de inglés',
