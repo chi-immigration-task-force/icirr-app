@@ -12,10 +12,9 @@
 }
 
 .ICIRRHeader-languageSelectorOption {
-  border-right: 1px solid $white;
+  border-right: 1px solid $icirr-yellow;
   flex: 0 0 auto;
   font-size: 1.2rem;
-  font-weight: bold;
   padding: 0 0.6rem;
   &:last-child {
     border-right: none;
@@ -24,4 +23,5 @@
 
 .ICIRRHeader-languageSelectorOption.is-selected {
   color: $icirr-yellow;
+  font-weight: bold;
 }

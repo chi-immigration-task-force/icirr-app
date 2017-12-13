@@ -38,7 +38,7 @@ class DiscoverRoute extends React.Component {
     return (
       <div className='DiscoverRoute'>
         <div className='DiscoverRoute-header'>
-          {this.props.translate('discover.header')}
+          {this.props.translate('discover.orgHeader')}
         </div>
         <div className='DiscoverRoute-servicesList'>
           {_.map(servicesFilterOptions, (serviceOption) => {
@@ -50,6 +50,11 @@ class DiscoverRoute extends React.Component {
               />
             );
           })}
+        </div>
+        <div className='DiscoverRoute-header'>
+          {this.props.translate('discover.infoHeader')}
+        </div>
+        <div className='DiscoverRoute-servicesList'>
           <ServiceListItem
             label={this.props.translate('discover.items.kyr')}
             onClick={this.handleKYRClicked}

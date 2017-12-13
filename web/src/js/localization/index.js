@@ -16,7 +16,8 @@ const strings = new LocalizedStrings({
     discover: {
       footerLink: 'ICIRR',
       footerText: 'Built with love by',
-      header: 'I need help with...',
+      infoHeader: "I'm looking for information about...",
+      orgHeader: 'I need someone to help me with...',
       items: {
         [servicesConstants.hasCitizenshipClasses]: 'Citizenship',
         [servicesConstants.hasEnglishClasses]: 'English Classes',
@@ -52,7 +53,8 @@ const strings = new LocalizedStrings({
     discover: {
       footerLink: 'ICIRR',
       footerText: 'Desarrollado con cariño por',
-      header: 'Necesito ayuda con...',
+      infoHeader: 'Estoy buscando información de...',
+      orgHeader: 'Necesito que alguien me ayude...',
       items: {
         [servicesConstants.hasCitizenshipClasses]: 'Ciudadanía',
         [servicesConstants.hasEnglishClasses]: 'Clases de inglés',
