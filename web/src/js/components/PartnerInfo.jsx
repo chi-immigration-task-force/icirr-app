@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 
+import SafeAnchor from 'components/SafeAnchor';
+
 import withTranslate from 'localization/withTranslate';
 
 class PartnerInfo extends React.Component {
@@ -27,9 +29,9 @@ class PartnerInfo extends React.Component {
         {address &&
           <div className='PartnerInfo-address'>
             {address}&nbsp;
-            (<a target='_blank' rel='noopener noreferrer' href={this.getGoogleMapsHref(address)}>
+            (<SafeAnchor href={this.getGoogleMapsHref(address)}>
               {this.props.translate('partner.getDirections')}
-            </a>)
+            </SafeAnchor>)
           </div>
         }
         {phone &&
@@ -38,9 +40,9 @@ class PartnerInfo extends React.Component {
           </div>
         }
         {website &&
-          <a className='PartnerInfo-website' target='_blank' rel='noopener noreferrer' href={href}>
+          <SafeAnchor className='PartnerInfo-website' href={href}>
             {website}
-          </a>
+          </SafeAnchor>
         }
       </div>
     );
