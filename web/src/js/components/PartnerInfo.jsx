@@ -27,16 +27,20 @@ class PartnerInfo extends React.Component {
       <div className='PartnerInfo'>
         <div className='PartnerInfo-name'>{name}</div>
         {address &&
-          <div className='PartnerInfo-address'>
-            {address}&nbsp;
-            (<SafeAnchor href={this.getGoogleMapsHref(address)}>
-              {this.props.translate('partner.getDirections')}
-            </SafeAnchor>)
+          <div key='address' className='PartnerInfo-address'>
+            <div>
+              {address}
+            </div>
+            <div className='PartnerInfo-directions'>
+              <SafeAnchor href={this.getGoogleMapsHref(address)}>
+                {this.props.translate('partner.directions')}
+              </SafeAnchor>
+            </div>
           </div>
         }
         {phone &&
           <div className='PartnerInfo-phone'>
-            {this.props.translate('partner.phone')}: <a className='PartnerInfo-phoneLink' href={`tel:${phone}`}>{formatPhone(phone.toString())}</a>
+            <a className='PartnerInfo-phoneLink' href={`tel:${phone}`}>{formatPhone(phone.toString())}</a>
           </div>
         }
         {website &&

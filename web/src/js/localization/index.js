@@ -44,7 +44,7 @@ const strings = new LocalizedStrings({
       map: 'Map',
     },
     partner: {
-      getDirections: 'Get Directions',
+      directions: 'Directions',
       phone: 'Phone',
     },
   },
@@ -84,7 +84,7 @@ const strings = new LocalizedStrings({
       map: 'Mapa',
     },
     partner: {
-      getDirections: 'Obtenga las direcciones',
+      directions: 'Direcciones',
       phone: 'Teléfono',
     },
   },
