@@ -2,24 +2,22 @@ import cx from 'classnames';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 class TabBar extends React.Component {
   render() {
     return (
       <div className='TabBar'>
         {_.map(this.props.tabs, (tab) => {
-          const linkClassName = cx('TabBar-tab', this.props.tabClassName, tab.className);
+          const linkClassName = cx('TabBar-tab', this.props.tabsClassName, {
+            'is-active': tab.key === this.props.selectedTab,
+          });
           return (
-            <NavLink key={tab.to}
-              activeClassName='TabBar-tabActive'
-              className={linkClassName}
-              to={tab.to}>
+            <div className={linkClassName} onClick={tab.onClick} key={tab.key}>
               {/*<div className='TabBar-tabIcon'>{tab.icon}</div>*/}
               <div className='TabBar-tabName'>
-                {tab.name}
+                {tab.label}
               </div>
-            </NavLink>
+            </div>
           );
         })}
       </div>
@@ -28,12 +26,12 @@ class TabBar extends React.Component {
 }
 
 TabBar.propTypes = {
-  tabClassName: PropTypes.string,
+  selectedTab: PropTypes.string.isRequired,
+  tabsClassName: PropTypes.string,
   tabs: PropTypes.arrayOf(PropTypes.shape({
-    className: PropTypes.string,
-    icon: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    to: PropTypes.string.isRequired,
+    key: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
   })).isRequired,
 };
 

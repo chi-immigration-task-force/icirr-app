@@ -8,13 +8,16 @@ import { Redirect, Route, Switch, withRouter } from 'react-router';
 
 import { toggleFilter } from 'actions/MapActions';
 
-import FloatyButton from 'components/buttons/FloatyButton';
+import TabBar from 'components/TabBar';
 import ServicesFilters from 'components/map/ServicesFilters';
 
 import withTranslate from 'localization/withTranslate';
 
 import MapRoute from 'routes/MapRoute';
 import OrganizationListRoute from 'routes/OrganizationListRoute';
+
+const LIST_KEY = 'list';
+const MAP_KEY = 'map';
 
 class OrganizationRoute extends React.Component {
   constructor(props) {
@@ -43,6 +46,15 @@ class OrganizationRoute extends React.Component {
   }
 
   render() {
+    const tabs = [{
+      key: LIST_KEY,
+      label: this.props.translate('navigation.list'),
+      onClick: this.toggleView,
+    }, {
+      key: MAP_KEY,
+      label: this.props.translate('navigation.map'),
+      onClick: this.toggleView,
+    }]
     return (
       <div className='OrganizationRoute'>
         <ServicesFilters onSelect={this.handleFilterSelect} selectedFilters={this.props.selectedFilters} />
@@ -57,9 +69,7 @@ class OrganizationRoute extends React.Component {
           />
           <Redirect from='*' to='/orgs/list' />
         </Switch>
-        <FloatyButton onClick={this.toggleView}>
-          {this.props.translate(`navigation.${this.isMap() ? 'list' : 'map'}`)}
-        </FloatyButton>
+        <TabBar selectedTab={this.isMap() ? MAP_KEY : LIST_KEY} tabs={tabs} />
       </div>
     );
   }

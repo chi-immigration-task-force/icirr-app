@@ -26,6 +26,9 @@ const infoLinkItems = [{
 }, {
   href: 'http://www.icirr.org/content/documents/agency_referral_12.2016.pdf',
   value: 'lowCostLegalAidProviders',
+}, {
+  href: 'http://www.icirr.org/our-work/fee-waiver-calculator',
+  value: 'feeWaiverCalculator',
 }];
 
 class DiscoverRoute extends React.Component {

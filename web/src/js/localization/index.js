@@ -26,7 +26,8 @@ const strings = new LocalizedStrings({
         nextWorkshop: 'The next citizenship workshop',
         citizenshipRequirements: 'Requirements to become a citizen',
         workshopWhatToBring: 'What to bring to a workshop',
-        lowCostLegalAidProviders: 'Low-cost immigration legal services providers',
+        lowCostLegalAidProviders: 'Immigration legal services providers',
+        feeWaiverCalculator: 'Fee Waiver Calculator',
       },
     },
     kyr: {
@@ -66,7 +67,7 @@ const strings = new LocalizedStrings({
         citizenshipRequirements: 'Requirements to become a citizen (SP)',
         workshopWhatToBring: 'What to bring to a workshop (SP)',
         lowCostLegalAidProviders: 'Low-cost immigration legal services providers  (SP)',
-
+        feeWaiverCalculator: 'Fee Waiver Calculator (SP)',
       },
     },
     kyr: {
