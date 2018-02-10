@@ -35,6 +35,7 @@
     "gulp": "^3.9.1",
     "gulp-cached": "^1.1.1",
     "gulp-eslint": "^3.0.1",
+    "gulp-inject-string": "^1.1.1",
     "gulp-insert-lines": "^0.0.4",
     "gulp-nodemon": "^2.2.1",
     "gulp-remove-html-comments": "^1.0.1",

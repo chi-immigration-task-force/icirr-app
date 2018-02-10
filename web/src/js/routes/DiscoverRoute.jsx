@@ -83,6 +83,7 @@ class DiscoverRoute extends React.Component {
           {_.map(infoLinkItems, (linkItem) => {
             return (
               <ServiceListItem
+                key={linkItem.value}
                 href={linkItem.href}
                 onClick={this.handleOpenLink}
                 value={linkItem.value}
