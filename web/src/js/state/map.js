@@ -28,7 +28,7 @@ const partners = _.map(naiPartners, (partner) => {
 
 const initialState = {
   partners,
-  selectedFilters: [],
+  selectedFilters: [servicesConstants.hasNaturalizationClasses],
   selectedMarker: null,
 };
 

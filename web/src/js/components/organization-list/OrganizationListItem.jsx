@@ -12,7 +12,7 @@ class OrganizationListRoute extends React.Component {
   render() {
     return (
       <div className='OrganizationListItem'>
-        <PartnerInfo {...this.props} />
+        <PartnerInfo {...this.props} selectedTabs={this.props.selectedTabs} />
       </div>
     );
   }

@@ -19,7 +19,8 @@ module.exports = {
     loaders: ['file-loader?name=fonts/[name].[ext]'],
     include: [
       path.join(cwd, 'src/fonts'),
-    ]
+      path.join(cwd, 'node_modules/material-design-icons/fonts'),
+    ],
   }, {
     test: imgRegex,
     loaders: ['file-loader?name=[path][name].[ext]&context=./src'],

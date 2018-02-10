@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import shallowCompare from 'react-addons-shallow-compare';
 import { Redirect, Route, Switch, withRouter } from 'react-router';
 
-import { toggleFilter } from 'actions/MapActions';
+import { setFilter } from 'actions/MapActions';
 
 import TabBar from 'components/TabBar';
 import ServicesFilters from 'components/map/ServicesFilters';
@@ -30,7 +30,7 @@ class OrganizationRoute extends React.Component {
   }
 
   handleFilterSelect(filterValue) {
-    this.props.toggleFilter(filterValue);
+    this.props.setFilter(filterValue);
   }
 
   isMap() {
@@ -48,13 +48,15 @@ class OrganizationRoute extends React.Component {
   render() {
     const tabs = [{
       key: LIST_KEY,
+      icon: 'list',
       label: this.props.translate('navigation.list'),
       onClick: this.toggleView,
     }, {
       key: MAP_KEY,
+      icon: 'map',
       label: this.props.translate('navigation.map'),
       onClick: this.toggleView,
-    }]
+    }];
     return (
       <div className='OrganizationRoute'>
         <ServicesFilters onSelect={this.handleFilterSelect} selectedFilters={this.props.selectedFilters} />
@@ -69,7 +71,11 @@ class OrganizationRoute extends React.Component {
           />
           <Redirect from='*' to='/orgs/list' />
         </Switch>
-        <TabBar selectedTab={this.isMap() ? MAP_KEY : LIST_KEY} tabs={tabs} />
+        <TabBar
+          className='OrganizationRoute-mapListTabBar'
+          selectedTab={this.isMap() ? MAP_KEY : LIST_KEY}
+          tabs={tabs}
+        />
       </div>
     );
   }
@@ -83,12 +89,12 @@ OrganizationRoute.propTypes = {
     replace: PropTypes.func.isRequired,
   }).isRequired,
   selectedFilters: PropTypes.arrayOf(PropTypes.string),
-  toggleFilter: PropTypes.func.isRequired,
+  setFilter: PropTypes.func.isRequired,
   translate: PropTypes.func.isRequired,
 };
 
 const actions = {
-  toggleFilter,
+  setFilter,
 };
 
 const mapStateToProps = (state) => {

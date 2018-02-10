@@ -4,6 +4,10 @@ import autoBind from 'react-autobind';
 import React from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 
+import Icon from 'components/Icon';
+
+import { serviceNameToIcon } from 'constants/servicesConstants';
+
 import withTranslate from 'localization/withTranslate';
 
 class ServicesFiltersItem extends React.Component {
@@ -27,6 +31,7 @@ class ServicesFiltersItem extends React.Component {
     return (
       <div className={className} onClick={this.handleClick}>
         {this.props.translate(`map.filterLabels.${this.props.value}`)}
+        <Icon className={this.props.iconClassName} icon={serviceNameToIcon[this.props.value]} />
       </div>
     );
   }
@@ -34,6 +39,7 @@ class ServicesFiltersItem extends React.Component {
 
 ServicesFiltersItem.propTypes = {
   className: PropTypes.string.isRequired,
+  iconClassName: PropTypes.string.isRequired,
   isSelected: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,

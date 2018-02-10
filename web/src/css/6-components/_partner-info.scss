@@ -6,8 +6,49 @@
   margin-bottom: 1.2rem;
 }
 
-.PartnerInfo-directions {
-  margin-top: 0.6rem;
+.PartnerInfo-actions {
+  display: flex;
+  margin-top: 1.2rem;
+}
+
+.PartnerInfo-action {
+  align-items: center;
+  display: flex;
+  flex: 1 0 0%;
+  justify-content: center;
+  margin: 0 1.2rem;
+  padding: 0.6rem 0 0;
+  text-decoration: none;
+
+  &:first-child {
+    border-right: 1px solid grey;
+  }
+}
+
+.PartnerInfo-details {
+  display: flex;
+}
+
+.PartnerInfo-detailsLeftSide {
+  flex: 1 0 0%;
+}
+
+.PartnerInfo-detailsRightSide {
+  flex: 0 0 auto;
+  padding-left: 1.2rem;
+}
+
+.PartnerInfo-servicesIcon {
+  color: grey;
+  display: block;
+}
+
+.PartnerInfo-servicesIcon.is-hidden {
+  visibility: hidden;
+}
+
+.PartnerInfo-servicesIcon.is-selected {
+  color: $icirr-dark-purple;
 }
 
 .PartnerInfo-name {

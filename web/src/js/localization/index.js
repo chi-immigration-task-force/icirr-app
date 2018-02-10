@@ -35,7 +35,7 @@ const strings = new LocalizedStrings({
     },
     map: {
       filterLabels: {
-        [servicesConstants.hasNaturalizationClasses]: 'Nat. Int.',
+        [servicesConstants.hasNaturalizationClasses]: 'Interview',
         [servicesConstants.hasLegalAid]: 'Applying',
         [servicesConstants.hasOutreachAndEducation]: 'Resources',
       },

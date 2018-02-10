@@ -20,6 +20,7 @@ class ServicesFilters extends React.Component {
             <ServicesFiltersItem
               key={option.value}
               className='ServicesFilters-item'
+              iconClassName='ServicesFilters-itemIcon'
               isSelected={_.includes(this.props.selectedFilters, option.value)}
               onClick={this.props.onSelect}
               {...option} />

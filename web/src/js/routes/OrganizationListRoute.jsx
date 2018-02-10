@@ -24,7 +24,7 @@ class OrganizationListRoute extends React.Component {
       <div className='OrganizationListRoute-list'>
         {_.map(this.props.partners, (partner) => {
           return (
-            <OrganizationListItem key={partner.id} {...partner} />
+            <OrganizationListItem key={partner.id} {...partner} selectedTabs={this.props.selectedTabs} />
           );
         })}
       </div>
@@ -39,6 +39,7 @@ OrganizationListRoute.propTypes = {
 const mapStateToProps = (state) => {
   return {
     partners: partnersSelector(state),
+    selectedTabs: state.map.selectedFilters,
   };
 };
 

@@ -3,6 +3,8 @@ import React from 'react';
 import autoBind from 'react-autobind';
 import shallowCompare from 'react-addons-shallow-compare';
 
+import Icon from 'components/Icon';
+
 import withTranslate from 'localization/withTranslate';
 
 class ServiceListItem extends React.Component {
@@ -29,7 +31,7 @@ class ServiceListItem extends React.Component {
         <span className='DiscoverRoute-servicesListItemLabel'>
           {this.props.translate(`discover.items.${this.props.value}`)}
         </span>
-        <span className='DiscoverRoute-servicesListItemArrow'>></span>
+        <Icon className='DiscoverRoute-servicesListItemArrow' icon='keyboard_arrow_right' />
       </div>
     );
   }

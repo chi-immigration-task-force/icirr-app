@@ -26,3 +26,13 @@
   background-color:$icirr-light-purple;
   color:$white;
 }
+
+.TabBar-tabIcon {
+  margin-left: 1.2rem;
+}
+
+.TabBar-tabName {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}

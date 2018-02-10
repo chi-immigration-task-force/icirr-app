@@ -49,6 +49,7 @@ class MapRoute extends React.Component {
             return (
               <MarkerWithInfoWindow
                 {...marker}
+                selectedTabs={this.props.selectedTabs}
                 isSelected={marker.id === this.props.selectedMarker}
                 onClick={this.props.setSelectedMarker} />
             );
@@ -62,6 +63,7 @@ class MapRoute extends React.Component {
 MapRoute.propTypes = {
   partners: PropTypes.arrayOf(PropTypes.object), // TODO: Better prop types
   selectedMarker: PropTypes.string,
+  selectedTabs: PropTypes.array,
   setSelectedMarker: PropTypes.func.isRequired,
 };
 
@@ -73,6 +75,7 @@ const mapStateToProps = (state) => {
   return {
     partners: partnersSelector(state),
     selectedMarker: state.map.selectedMarker,
+    selectedTabs: state.map.selectedFilters,
   };
 };
 
