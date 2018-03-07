@@ -17,18 +17,18 @@ import withTranslate from 'localization/withTranslate';
 const infoLinkItems = [{
   href: 'http://www.icirr.org/news-events/events?show=citizenship-workshop',
   value: 'nextWorkshop',
-}, {
-  href: 'https://www.uscis.gov/citizenship/educators/naturalization-information#eligibility_reqmts',
-  value: 'citizenshipRequirements',
+},  {
+  href: 'http://www.icirr.org/our-work/fee-waiver-calculator',
+  value: 'feeWaiverCalculator',
 }, {
   href: 'http://www.icirr.org/our-work/what-to-bring-to-a-workshop-que-llevar-a',
   value: 'workshopWhatToBring',
 }, {
+  href: 'https://www.uscis.gov/citizenship/educators/naturalization-information#eligibility_reqmts',
+  value: 'citizenshipRequirements',
+}, {
   href: 'http://www.icirr.org/content/documents/agency_referral_12.2016.pdf',
   value: 'lowCostLegalAidProviders',
-}, {
-  href: 'http://www.icirr.org/our-work/fee-waiver-calculator',
-  value: 'feeWaiverCalculator',
 }];
 
 class DiscoverRoute extends React.Component {
@@ -76,10 +76,6 @@ class DiscoverRoute extends React.Component {
           {this.props.translate('discover.infoHeader')}
         </div>
         <div className='DiscoverRoute-servicesList'>
-          <ServiceListItem
-            onClick={this.handleKYRClicked}
-            value='kyr'
-          />
           {_.map(infoLinkItems, (linkItem) => {
             return (
               <ServiceListItem
@@ -90,6 +86,10 @@ class DiscoverRoute extends React.Component {
               />
             );
           })}
+          <ServiceListItem
+            onClick={this.handleKYRClicked}
+            value='kyr'
+          />
         </div>
         <div className='DiscoverRoute-icirrInfoLink'>
           {this.props.translate('discover.footerText')}&nbsp;

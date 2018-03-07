@@ -19,15 +19,15 @@ const strings = new LocalizedStrings({
       infoHeader: "I'm looking for information about...",
       orgHeader: 'I need someone to help me with...',
       items: {
-        [servicesConstants.hasNaturalizationClasses]: 'Passing the Naturalization Interview',
+        [servicesConstants.hasNaturalizationClasses]: 'Passing the citizenship interview',
         [servicesConstants.hasLegalAid]: 'Applying for citizenship',
-        [servicesConstants.hasOutreachAndEducation]: 'Finding resources for citizenship',
+        [servicesConstants.hasOutreachAndEducation]: 'Finding more information',
         kyr: 'My rights',
         nextWorkshop: 'The next citizenship workshop',
         citizenshipRequirements: 'Requirements to become a citizen',
         workshopWhatToBring: 'What to bring to a workshop',
         lowCostLegalAidProviders: 'Immigration legal services providers',
-        feeWaiverCalculator: 'Fee Waiver Calculator',
+        feeWaiverCalculator: 'Applying for citizenship for free',
       },
     },
     kyr: {
@@ -35,9 +35,9 @@ const strings = new LocalizedStrings({
     },
     map: {
       filterLabels: {
-        [servicesConstants.hasNaturalizationClasses]: 'Interview',
+        [servicesConstants.hasNaturalizationClasses]: 'Classes',
         [servicesConstants.hasLegalAid]: 'Applying',
-        [servicesConstants.hasOutreachAndEducation]: 'Resources',
+        [servicesConstants.hasOutreachAndEducation]: 'More info',
       },
     },
     navigation: {
@@ -67,7 +67,7 @@ const strings = new LocalizedStrings({
         citizenshipRequirements: 'Requirements to become a citizen (SP)',
         workshopWhatToBring: 'What to bring to a workshop (SP)',
         lowCostLegalAidProviders: 'Low-cost immigration legal services providers  (SP)',
-        feeWaiverCalculator: 'Fee Waiver Calculator (SP)',
+        feeWaiverCalculator: 'Applying for citizenship for free (SP)',
       },
     },
     kyr: {
