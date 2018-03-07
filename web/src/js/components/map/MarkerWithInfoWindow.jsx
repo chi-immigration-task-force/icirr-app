@@ -26,7 +26,7 @@ class MarkerWithInfoWindow extends React.Component {
     return (
       <Marker {...this.props} onClick={this.handleMarkerClick}>
         {this.props.isSelected &&
-          <InfoWindow onCloseClick={this.handleClose}>
+          <InfoWindow onCloseClick={this.handleClose} options={{maxWidth: 250}}>
             <PartnerInfo {...this.props} selectedTabs={this.props.selectedTabs} />
           </InfoWindow>
         }
