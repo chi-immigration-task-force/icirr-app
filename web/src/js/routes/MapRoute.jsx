@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import shallowCompare from 'react-addons-shallow-compare';
 import { default as MarkerClusterer } from 'react-google-maps/lib/components/addons/MarkerClusterer';
 
-import { setSelectedMarker } from 'actions/MapActions';
+import { clearSelectedMarker, setSelectedMarker } from 'actions/MapActions';
 
 import GoogleMapWrapper from 'components/map/GoogleMapWrapper';
 import MarkerWithInfoWindow from 'components/map/MarkerWithInfoWindow';
@@ -51,7 +51,8 @@ class MapRoute extends React.Component {
                 {...marker}
                 selectedTabs={this.props.selectedTabs}
                 isSelected={marker.id === this.props.selectedMarker}
-                onClick={this.props.setSelectedMarker} />
+                onClick={this.props.setSelectedMarker}
+                onClose={this.props.clearSelectedMarker} />
             );
           })}
         </MarkerClusterer>
@@ -61,6 +62,7 @@ class MapRoute extends React.Component {
 }
 
 MapRoute.propTypes = {
+  clearSelectedMarker: PropTypes.func.isRequired,
   partners: PropTypes.arrayOf(PropTypes.object), // TODO: Better prop types
   selectedMarker: PropTypes.string,
   selectedTabs: PropTypes.array,
@@ -68,6 +70,7 @@ MapRoute.propTypes = {
 };
 
 const actions = {
+  clearSelectedMarker,
   setSelectedMarker,
 };
 

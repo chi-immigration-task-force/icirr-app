@@ -18,11 +18,15 @@ class MarkerWithInfoWindow extends React.Component {
     this.props.onClick(this.props.id);
   }
 
+  handleClose() {
+    this.props.onClose();
+  }
+
   render() {
     return (
       <Marker {...this.props} onClick={this.handleMarkerClick}>
         {this.props.isSelected &&
-          <InfoWindow onCloseClick={this.handleMarkerClick}>
+          <InfoWindow onCloseClick={this.handleClose}>
             <PartnerInfo {...this.props} selectedTabs={this.props.selectedTabs} />
           </InfoWindow>
         }
@@ -35,6 +39,7 @@ MarkerWithInfoWindow.propTypes = {
   id: PropTypes.string.isRequired,
   isSelected: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
   selectedTabs: PropTypes.array.isRequired,
 };
 

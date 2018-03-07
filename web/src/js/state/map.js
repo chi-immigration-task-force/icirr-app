@@ -35,6 +35,12 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
+    case 'CLEAR_MARKER': {
+      return {
+        ...state,
+        selectedMarker: null,
+      };
+    }
     case 'SELECT_MARKER': {
       return {
         ...state,

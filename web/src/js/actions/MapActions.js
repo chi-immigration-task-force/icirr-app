@@ -1,3 +1,9 @@
+export function clearSelectedMarker() {
+  return {
+    type: 'CLEAR_MARKER',
+  };
+}
+
 export function setFilter(filterName) {
   return {
     type: 'SET_FILTER',
