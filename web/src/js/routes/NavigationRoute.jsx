@@ -14,6 +14,8 @@ import KnowYourRightsRoute from 'routes/KnowYourRightsRoute';
 import MoreRoute from 'routes/MoreRoute';
 import OrganizationRoute from 'routes/OrganizationRoute';
 
+import withTranslate from 'localization/withTranslate';
+
 class NavigationRoute extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +40,7 @@ class NavigationRoute extends React.Component {
     return (
       <div className='NavigationRoute'>
         <ICIRRHeader
-          backButtonText='Back'
+          backButtonText={this.props.translate('header.back')}
           onBack={this.props.history.location.pathname === '/' ? undefined : this.handleBack}
           onSelectLanguage={this.handleSelectLanguage}
           selectedLanguage={this.props.selectedLanguage} />
@@ -96,4 +98,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, actions)(NavigationRoute));
+export default withTranslate(withRouter(connect(mapStateToProps, actions)(NavigationRoute)));

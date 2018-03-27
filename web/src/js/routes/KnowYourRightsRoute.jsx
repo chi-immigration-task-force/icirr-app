@@ -12,7 +12,13 @@ class KnowYourRightsRoute extends React.Component {
 
   render() {
     return (
-      <ReactMarkdown source={this.props.translate('kyr.content')} />
+      <div className='KnowYourRightsRoute'>
+        <img
+          className='KnowYourRightsRoute-image'
+          src={`/images/${this.props.translate('kyr.imageSrc')}`}
+        />
+        <ReactMarkdown source={this.props.translate('kyr.content')} />
+      </div>
     );
   }
 }

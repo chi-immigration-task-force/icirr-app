@@ -32,6 +32,7 @@ const strings = new LocalizedStrings({
     },
     kyr: {
       content: kyr,
+      imageSrc: 'kyr_eng.png',
     },
     map: {
       filterLabels: {
@@ -51,7 +52,7 @@ const strings = new LocalizedStrings({
   },
   es: {
     header: {
-      back: 'Regrese',
+      back: 'Atrás',
     },
     discover: {
       footerLink: 'ICIRR',
@@ -59,25 +60,26 @@ const strings = new LocalizedStrings({
       infoHeader: 'Estoy buscando información de...',
       orgHeader: 'Necesito que alguien me ayude con...',
       items: {
-        [servicesConstants.hasNaturalizationClasses]: 'Ciudadanía',
-        [servicesConstants.hasLegalAid]: 'Ayuda Legal',
-        [servicesConstants.hasOutreachAndEducation]: 'En mi comunidad',
+        [servicesConstants.hasNaturalizationClasses]: 'Aprobando la entrevista de ciudadanía',
+        [servicesConstants.hasLegalAid]: 'Solicitando la ciudadanía estadounidense',
+        [servicesConstants.hasOutreachAndEducation]: 'Finding more information (SP)',
         kyr: 'Mis derechos',
-        nextWorkshop: 'The next citizenship workshop (SP)',
-        citizenshipRequirements: 'Requirements to become a citizen (SP)',
-        workshopWhatToBring: 'What to bring to a workshop (SP)',
-        lowCostLegalAidProviders: 'Low-cost immigration legal services providers  (SP)',
-        feeWaiverCalculator: 'Applying for citizenship for free (SP)',
+        nextWorkshop: 'El siguiente taller de ciudadanía',
+        citizenshipRequirements: 'Requisitos para convertirse en ciudadano',
+        workshopWhatToBring: 'Qué traer al taller',
+        lowCostLegalAidProviders: 'Proveedores de servicios legales en temas de inmigración',
+        feeWaiverCalculator: 'Solicitando la gratuidad de los costos del proceso de ciudadanía',
       },
     },
     kyr: {
       content: kyrSpanish,
+      imageSrc: 'kyr_esp.png',
     },
     map: {
       filterLabels: {
-        [servicesConstants.hasNaturalizationClasses]: 'Ciudadanía',
-        [servicesConstants.hasLegalAid]: 'Abogado',
-        [servicesConstants.hasOutreachAndEducation]: 'Educación',
+        [servicesConstants.hasNaturalizationClasses]: 'Clases',
+        [servicesConstants.hasLegalAid]: 'Applying (SP)',
+        [servicesConstants.hasOutreachAndEducation]: 'Más información',
       },
     },
     navigation: {
