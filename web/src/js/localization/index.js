@@ -62,7 +62,7 @@ const strings = new LocalizedStrings({
       items: {
         [servicesConstants.hasNaturalizationClasses]: 'Aprobando la entrevista de ciudadanía',
         [servicesConstants.hasLegalAid]: 'Solicitando la ciudadanía estadounidense',
-        [servicesConstants.hasOutreachAndEducation]: 'Finding more information (SP)',
+        [servicesConstants.hasOutreachAndEducation]: 'Encontrando mayor información',
         kyr: 'Mis derechos',
         nextWorkshop: 'El siguiente taller de ciudadanía',
         citizenshipRequirements: 'Requisitos para convertirse en ciudadano',
@@ -78,7 +78,7 @@ const strings = new LocalizedStrings({
     map: {
       filterLabels: {
         [servicesConstants.hasNaturalizationClasses]: 'Clases',
-        [servicesConstants.hasLegalAid]: 'Applying (SP)',
+        [servicesConstants.hasLegalAid]: 'Solicitando',
         [servicesConstants.hasOutreachAndEducation]: 'Más información',
       },
     },
