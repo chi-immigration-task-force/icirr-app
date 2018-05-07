@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const { UnusedFilesWebpackPlugin } = require("unused-files-webpack-plugin");
 
 const cwd = process.cwd();
 const sharedConfig = require('./shared.config.js');
@@ -24,6 +25,20 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
+    new UnusedFilesWebpackPlugin({
+      patterns: [
+        'src/css/**/*.*',
+        'src/images/**/*.*',
+        'src/js/**/*.*',
+        'src/static/**/*.*',
+      ],
+      globOptions: {
+        ignore: [
+          'src/static/massage_partner_list.py',
+          'src/static/nai_partners_contact_list.csv',
+        ],
+      },
+    }),
   ],
 
   module: {
@@ -51,16 +66,6 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader?sourceMap',
-          // {
-          //   loader: 'postcss-loader',
-          //   options: {
-          //     plugins: function() {
-          //       return [
-          //         sharedConfig.postcss
-          //       ];
-          //     }
-          //   }
-          // },
           'sass-loader?sourceMap'
         ],
         include: [

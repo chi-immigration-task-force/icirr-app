@@ -9,6 +9,12 @@ import OrganizationListItem from 'components/organization-list/OrganizationListI
 
 import partnersSelector from 'selectors/partnersSelector';
 
+/**
+ * Takes the list of partners that match the selected service and
+ * renders them out in a list.
+ * The partners are limited to those that match the selected
+ * service by the partnersSelector.
+ */
 class OrganizationListRoute extends React.Component {
   constructor(props) {
     super(props);
@@ -34,6 +40,7 @@ class OrganizationListRoute extends React.Component {
 
 OrganizationListRoute.propTypes = {
   partners: PropTypes.arrayOf(PropTypes.object),
+  selectedTabs: PropTypes.arrayOf(PropTypes.string),
 };
 
 const mapStateToProps = (state) => {

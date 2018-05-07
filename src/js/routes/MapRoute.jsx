@@ -16,6 +16,15 @@ import partnersSelector from 'selectors/partnersSelector';
 
 const DOWNTOWN_CHICAGO_LAT_LNG = { lat: 41.8781, lng: -87.6298 };
 
+/**
+ * Handles render the map with all the partners on it.
+ * The partners are limited to those that match the selected
+ * service by the partnersSelector.
+ * 
+ * At present (2018-05-06), we're using google maps. By default, we center
+ * the app on Chicago downtown. We're using a marker cluster so that there
+ * isn't an overwhelming number of markers at first.
+ */
 class MapRoute extends React.Component {
   constructor(props) {
     super(props);
@@ -63,7 +72,7 @@ class MapRoute extends React.Component {
 
 MapRoute.propTypes = {
   clearSelectedMarker: PropTypes.func.isRequired,
-  partners: PropTypes.arrayOf(PropTypes.object), // TODO: Better prop types
+  partners: PropTypes.arrayOf(PropTypes.object),
   selectedMarker: PropTypes.string,
   selectedTabs: PropTypes.array,
   setSelectedMarker: PropTypes.func.isRequired,

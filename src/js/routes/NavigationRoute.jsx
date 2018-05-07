@@ -9,13 +9,16 @@ import actions from 'actions';
 import ICIRRHeader from 'components/ICIRRHeader';
 
 import DiscoverRoute from 'routes/DiscoverRoute';
-import EmergencyRoute from 'routes/EmergencyRoute';
 import KnowYourRightsRoute from 'routes/KnowYourRightsRoute';
-import MoreRoute from 'routes/MoreRoute';
 import OrganizationRoute from 'routes/OrganizationRoute';
 
 import withTranslate from 'localization/withTranslate';
 
+/**
+ * This route renders a consistent header at the top of the app.
+ * It also includes the primary switch statement that routes between the landing (Discover) route
+ * and the other routes
+ */
 class NavigationRoute extends React.Component {
   constructor(props) {
     super(props);
@@ -37,17 +40,17 @@ class NavigationRoute extends React.Component {
   }
 
   render() {
+    // We don't want to go back if the current location is the root route
+    const onBack = this.props.history.location.pathname === '/' ? undefined : this.handleBack;
     return (
       <div className='NavigationRoute'>
         <ICIRRHeader
           backButtonText={this.props.translate('header.back')}
-          onBack={this.props.history.location.pathname === '/' ? undefined : this.handleBack}
+          onBack={onBack}
           onSelectLanguage={this.handleSelectLanguage}
           selectedLanguage={this.props.selectedLanguage} />
         <div className='NavigationRoute-content'>
           <Switch>
-            <Route path='/emergency' component={EmergencyRoute} />
-            <Route path='/more' component={MoreRoute} />
             <Route path='/kyr' component={KnowYourRightsRoute} />
             <Route path='/orgs' component={OrganizationRoute} />
             <Route path='/' component={DiscoverRoute} />
@@ -59,27 +62,6 @@ class NavigationRoute extends React.Component {
   }
 }
 
-NavigationRoute.tabs = [
-  {
-    icon: 'ICON',
-    key: 'map',
-    to: '/map',
-  }, {
-    className: 'EmergencyRoute-tab',
-    icon: 'ICON',
-    key: 'emergency',
-    to: '/emergency',
-  }, {
-    icon: 'ICON',
-    key: 'myRights',
-    to: '/kyr',
-  }, {
-    icon: 'ICON',
-    key: 'more',
-    to: '/more',
-  },
-];
-
 NavigationRoute.propTypes = {
   actions: PropTypes.object.isRequired,
   history: PropTypes.shape({
@@ -90,6 +72,7 @@ NavigationRoute.propTypes = {
     }),
   }).isRequired,
   selectedLanguage: PropTypes.string.isRequired,
+  translate: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {

@@ -5,6 +5,8 @@ import ReactMarkdown from 'react-markdown';
 
 import withTranslate from 'localization/withTranslate';
 
+// Simple component that places the Know Your Rights png file
+// above the content (defined in the markdown files in static).
 class KnowYourRightsRoute extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     return shallowCompare(this, nextProps, nextState);

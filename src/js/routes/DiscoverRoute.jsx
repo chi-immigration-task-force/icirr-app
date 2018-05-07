@@ -14,6 +14,8 @@ import { servicesFilterOptions } from 'constants/servicesConstants';
 
 import withTranslate from 'localization/withTranslate';
 
+// This object maps URLs onto the key in the translation file
+// that we'll use fol that list item
 const infoLinkItems = [{
   href: 'http://www.icirr.org/news-events/events?show=citizenship-workshop',
   value: 'nextWorkshop',
@@ -31,6 +33,16 @@ const infoLinkItems = [{
   value: 'lowCostLegalAidProviders',
 }];
 
+/**
+ * This component renders the list of all the "actions" that can be taken
+ * from the home screen.
+ * 
+ * The first section is the kinds of services
+ * offered by New Americans Initiative partners.
+ * 
+ * The second section is links related to citizenship
+ * (as well as a know your rights page).
+ */
 class DiscoverRoute extends React.Component {
   constructor(props) {
     super(props);
@@ -49,6 +61,8 @@ class DiscoverRoute extends React.Component {
     window.open(href,'_blank','noopener');
   }
 
+  // On click / tap, we set the map filter to the selected service
+  // and then route to the organizations list
   handleServiceClicked(event) {
     const filterName = event.currentTarget.getAttribute('name');
     this.props.actions.map.setFilter(filterName);

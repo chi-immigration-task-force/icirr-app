@@ -10,7 +10,6 @@ strings.setLanguage(initialLanguage);
 
 const initialState = {
   language: initialLanguage,
-  lawyerNumber: '',
 };
 
 export default function reducer(state = initialState, action) {

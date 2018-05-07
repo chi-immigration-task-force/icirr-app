@@ -9,6 +9,12 @@ const bundledActions = {
   settings,
 };
 
+/*
+ * Provides a convenient way to access all the actions in the program.
+ * Can be imported and passed directly to redux's `connect` function.
+ * 
+ * Only binds one level deep, however, so if an action is itself nested, this will not work.
+ */
 export default function getAllActions(dispatch) {
   return {
     actions: _.fromPairs(_.map(bundledActions, (action, key) => [key, bindActionCreators(action, dispatch)]))

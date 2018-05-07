@@ -1,3 +1,5 @@
+// We require CSS and images in this way so that we can get reloads
+// with webpack hot reloader
 require('../css/index.scss');
 require.context('../images', true, /^\.\//);
 
@@ -40,6 +42,7 @@ const render = (Component) => {
 
 render(App);
 
+// `module.hot` will only be on in development.
 if (module.hot) {
   module.hot.accept('./App', () => {
     const App = require('./App').default;

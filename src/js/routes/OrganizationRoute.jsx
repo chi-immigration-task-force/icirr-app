@@ -19,6 +19,10 @@ import OrganizationListRoute from 'routes/OrganizationListRoute';
 const LIST_KEY = 'list';
 const MAP_KEY = 'map';
 
+/**
+ * Route that manages the services filter and map/list toggle
+ * that are share by both the MapRoute and OrganizationListRoute.
+ */
 class OrganizationRoute extends React.Component {
   constructor(props) {
     super(props);

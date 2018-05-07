@@ -10,8 +10,8 @@ gulp.task('webpack', () => {
     publicPath: webpackDevConfig.output.publicPath,
     hot: true,
     historyApiFallback: true,
-    noInfo: true,
-    quiet: true,
+    noInfo: false,
+    quiet: false,
   }).listen(3000, '0.0.0.0', function(err/*, result*/) {
     if (err) {
       console.info(err);

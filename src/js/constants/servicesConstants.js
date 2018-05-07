@@ -1,5 +1,9 @@
 import keyMirror from 'key-mirror';
 
+// Just some constants to help make sure we use the same
+// string to reference the service in all cases.
+// keyMirror just creates an object where every key's value
+// is a string of the key.
 const servicesConstants = keyMirror({
   hasNaturalizationClasses: null,
   hasLegalAid: null,
