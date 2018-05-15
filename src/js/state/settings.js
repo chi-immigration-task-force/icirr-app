@@ -3,6 +3,9 @@ import strings from 'localization';
 
 import supportedLanguages from 'constants/supportedLanguages';
 
+// If the browser is set to use spanish, default to that. Else, fallback to
+// english as the only other language we have.
+// Users can always change languages using teh selector.
 const initialLanguage = _.includes(navigator.languages, supportedLanguages.es) ?
   supportedLanguages.es : supportedLanguages.en;
 

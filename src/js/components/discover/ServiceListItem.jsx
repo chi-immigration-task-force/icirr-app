@@ -7,6 +7,11 @@ import Icon from 'components/Icon';
 
 import withTranslate from 'localization/withTranslate';
 
+/**
+ * A component for rendering an item in the list on the discover route.
+ * Takes care of whether to pass an event or href back up to the parent
+ * component.
+ */
 class ServiceListItem extends React.Component {
   constructor(props) {
     super(props);

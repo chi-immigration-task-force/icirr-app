@@ -5,6 +5,10 @@ import React from 'react';
 
 import Icon from 'components/Icon';
 
+/**
+ * Renders a tab bar and its constituent tabs.
+ * If the tab has an icon, renders that in addition to the label
+ */
 class TabBar extends React.Component {
   render() {
     const tabBarClassName = cx('TabBar', this.props.className);

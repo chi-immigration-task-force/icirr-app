@@ -7,6 +7,10 @@ import ServicesFiltersItem from 'components/map/ServicesFiltersItem';
 
 import { servicesFilterOptions } from 'constants/servicesConstants';
 
+/**
+ * A horizontal list of the filters that can be used to search
+ * for partners that offer different services.
+ */
 class ServicesFilters extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     return shallowCompare(this, nextProps, nextState);

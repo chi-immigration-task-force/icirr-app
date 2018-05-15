@@ -6,6 +6,13 @@ import servicesConstants from 'constants/servicesConstants';
 import kyr from 'static/kyr';
 import kyrSpanish from 'static/kyr-spanish';
 
+/**
+ * This file is a mapping of all the "keys" we can translate to the relevant
+ * text. All translations are nested w/i their language code. See the library
+ * for documentation, or our README for additional details.
+ * https://www.npmjs.com/package/react-localization
+ */
+
 // Since `en` is listed first, it becomes the default language. If any keys are missing
 // it will fall back onto english;
 const strings = new LocalizedStrings({

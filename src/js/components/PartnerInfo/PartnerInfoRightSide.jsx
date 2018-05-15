@@ -4,15 +4,17 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Icon from 'components/Icon';
-import SafeAnchor from 'components/SafeAnchor';
 
 import { serviceNameToIcon } from 'constants/servicesConstants';
 
+/**
+ * As the name suggests, is the right side of the PartnerInfo component.
+ * Shows a list of the services offered by the partner organization,
+ * and highlights any of those services that are currently selected.
+ */
 class PartnerInfoRightSide extends React.Component {
   render() {
     const {
-      directionsHref,
-      phone,
       selectedTabs,
       services,
     } = this.props;
@@ -31,24 +33,12 @@ class PartnerInfoRightSide extends React.Component {
             );
           })}
         </div>
-        {/*phone &&
-          <a className='PartnerInfo-callAction' href={`tel:${phone}`}>
-            <Icon icon='phone' />
-          </a>
-        }
-        {directionsHref &&
-          <SafeAnchor className='PartnerInfo-directionsAction' href={directionsHref}>
-            <Icon icon='directions' />
-          </SafeAnchor>
-        */}
       </div>
     );
   }
 }
 
 PartnerInfoRightSide.propTypes = {
-  directionsHref: PropTypes.string,
-  phone: PropTypes.number,
   selectedTabs: PropTypes.array.isRequired,
   services: PropTypes.object.isRequired,
 };

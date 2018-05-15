@@ -6,9 +6,14 @@ import shallowCompare from 'react-addons-shallow-compare';
 import Icon from 'components/Icon';
 import SafeAnchor from 'components/SafeAnchor';
 
-import withTranslate from 'localization/withTranslate';
 import PartnerInfoRightSide from './PartnerInfoRightSide';
 
+/**
+ * One of the more complex components in the app.
+ * Renders all of the information about one of the partner organizations.
+ * In the bottom "actions" section, provides a button to click on to call
+ * the organization or to get directions.
+ */
 class PartnerInfo extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     return shallowCompare(this, nextProps, nextState);
@@ -81,12 +86,19 @@ PartnerInfo.propTypes = {
   phone: PropTypes.number.isRequired,
   selectedTabs: PropTypes.array.isRequired,
   services: PropTypes.object.isRequired,
-  translate: PropTypes.func.isRequired,
   website: PropTypes.string.isRequired,
 };
 
-export default withTranslate(PartnerInfo);
+export default PartnerInfo;
 
+/**
+ * Attempts to format the provided phone number in a more beautiful way.
+ * Outputs a string of the form (XXX) XXX-XXXX.
+ * Code looks like I got it from StackOverflow at some point...
+ * 
+ * @param {string} phoneNumber The phone number to format
+ * @returns {string} a more beautifully formatted phone number
+ */
 function formatPhone(phoneNumber) {
   const numbers = phoneNumber.replace(/\D/g, '');
   const char = {

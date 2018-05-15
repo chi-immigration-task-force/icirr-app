@@ -36,6 +36,7 @@ module.exports = {
         ignore: [
           'src/static/massage_partner_list.py',
           'src/static/nai_partners_contact_list.csv',
+          'src/static/README.md',
         ],
       },
     }),

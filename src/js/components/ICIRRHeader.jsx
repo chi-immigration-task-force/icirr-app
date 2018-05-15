@@ -10,40 +10,12 @@ import HeaderButtonLeft from 'components/buttons/HeaderButtonLeft';
 
 import { languageOptions } from 'constants/supportedLanguages';
 
-class LanguageSelectorOption extends React.Component {
-  constructor(props) {
-    super(props);
-    autoBind(this);
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return shallowCompare(this, nextProps, nextState);
-  }
-
-  handleClick() {
-    this.props.onClick(this.props.value);
-  }
-
-  render() {
-    const className = cx('ICIRRHeader-languageSelectorOption', {
-      'is-selected': this.props.isSelected,
-    });
-    return (
-      <div className={className} onClick={this.handleClick}>
-        {this.props.label}
-      </div>
-    );
-  }
-}
-
-LanguageSelectorOption.propTypes = {
-  isSelected: PropTypes.bool.isRequired,
-  label: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
-};
-
-class ICIRRHeader extends React.Component {
+/**
+ * Renders the header that's present throughout the app.
+ * Includes a back button, the ICIRR logo / name,
+ * and the language selector (so that it's always accessible).
+ */
+export default class ICIRRHeader extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     return shallowCompare(this, nextProps, nextState);
   }
@@ -83,4 +55,38 @@ ICIRRHeader.propTypes = {
   selectedLanguage: PropTypes.string.isRequired,
 };
 
-export default ICIRRHeader;
+/**
+ * Helper component for rendering the language options for the app.
+ */
+class LanguageSelectorOption extends React.Component {
+  constructor(props) {
+    super(props);
+    autoBind(this);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return shallowCompare(this, nextProps, nextState);
+  }
+
+  handleClick() {
+    this.props.onClick(this.props.value);
+  }
+
+  render() {
+    const className = cx('ICIRRHeader-languageSelectorOption', {
+      'is-selected': this.props.isSelected,
+    });
+    return (
+      <div className={className} onClick={this.handleClick}>
+        {this.props.label}
+      </div>
+    );
+  }
+}
+
+LanguageSelectorOption.propTypes = {
+  isSelected: PropTypes.bool.isRequired,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+};

@@ -5,6 +5,10 @@ import { InfoWindow, Marker } from 'react-google-maps';
 
 import PartnerInfo from 'components/PartnerInfo';
 
+/**
+ * Renders a google maps marker, and if it's selected,
+ * an info window with the provided partner's information
+ */
 class MarkerWithInfoWindow extends React.Component {
   constructor(props) {
     super(props);

@@ -10,6 +10,9 @@ import { serviceNameToIcon } from 'constants/servicesConstants';
 
 import withTranslate from 'localization/withTranslate';
 
+/**
+ * An item in the service filters list
+ */
 class ServicesFiltersItem extends React.Component {
   constructor(props) {
     super(props);
