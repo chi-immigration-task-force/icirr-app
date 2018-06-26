@@ -34,9 +34,7 @@ class NavigationRoute extends React.Component {
   }
 
   handleSelectLanguage(language) {
-    this.props.actions.settings.setSettings({
-      language,
-    });
+    this.props.actions.settings.setLanguage(language);
   }
 
   render() {

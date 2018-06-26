@@ -1,14 +1,13 @@
 /**
- * Takes an object for the settings (at present, just the key 'language' is valid)
- * and creates a redux action that sets the provided settings.
+ * Takes the newly selected language
+ * and creates a redux action that sets the provided language.
  * 
- * @param {object} settings The settings the app should be configured with.
- *   At present, only takes the selected language.
+ * @param {object} language The selected language the app should be configured with.
  * @returns {object} A redux action
  */
-export function setSettings(settings) {
+export function setLanguage(language) {
   return {
-    type: 'SET_SETTINGS',
-    payload: settings,
+    type: 'SET_LANGUAGE',
+    payload: language,
   };
 }

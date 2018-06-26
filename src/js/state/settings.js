@@ -18,13 +18,11 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
-    case 'SET_SETTINGS': {
-      if (payload.language) {
-        strings.setLanguage(payload.language);
-      }
+    case 'SET_LANGUAGE': {
+      strings.setLanguage(payload);
       return {
         ...state,
-        ...payload,
+        language: payload,
       };
     }
     default:
