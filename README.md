@@ -18,15 +18,20 @@ Follow the instructions [here](https://yarnpkg.com/lang/en/docs/install/#mac-tab
 Using whatever approach you prefer.
 
 ## Developing
-We're doing development like it's a website and then copying the results of a
-production build of the web assets into cordova to generate the native apps.
-To get started, change directory to `icirr-app/web/`, run `yarn && yarn start`. You should then be able to see the existing site at `http://localhost:3000/`.
+To get started, run `yarn && yarn start`. You should then be able to see the existing site at `http://localhost:3000/`.
 
-All the website files live in `/web/src`. Feel free to poke around! The
+All the website files live in `/src`. Feel free to poke around! The
 primary technologies we use are:
 
 1. [React](https://facebook.github.io/react/)
 2. [Redux](http://redux.js.org/)
+
+### The build process
+The build process is run by [gulp](https://www.npmjs.com/package/gulp), which
+chains together tasks. The `build` task (defined in `gulp/tasks/build.js`) runs
+and html build task and a [webpack](https://webpack.js.org/) build task. The html
+build task more-or-less just copies over the index.html file, but with some
+variable substitution.
 
 ## Deploying web app to heroku
 For more details instructions, check out heroku's instructions on how to deploy
@@ -46,8 +51,52 @@ git push heroku master
 - [Reselect](https://github.com/reduxjs/reselect)
   This is a way to memoize computed values coming from the state.
 
+### CSS
+We use scss as our css preprocessor for no particular reason over the other
+preprocessors, it's just what I've used at work so it was familiar.
+Similarly, the CSS folder structure is from [ITCSS](https://speakerdeck.com/dafed/managing-css-projects-with-itcss).
+
+**Icons**
+
+Our icons come from [Material Design Icons](https://google.github.io/material-design-icons/).
+We're currently pulling them in from Google web fonts, but may want to move to hosting
+it ourselves or bundling it in, since ad blockers may block them.
+
+### Translations
+We're using a library called [react-localization](https://www.npmjs.com/package/react-localization) to handle
+translation. With that, we construct a `LocalizedStrings` object (in [`src/js/localization/index.js`](https://github.com/chi-immigration-task-force/icirr-app/blob/master/src/js/localization/index.js)). Each key
+in this is a language code (currently only english and spanish are supported), and the values are objects with
+the strings in that language to render. They are generally organized by route.
+
+**Translating the app**
+
+To access the translations, you need to wrap the relevant component in `withTranslate`. This will expose
+`this.props.translate` on the component, which takes a string representing the object path
+(e.g. to access `{ discover: { infoHeader: 'Desired String } }` you would pass it `discover.infoHeader`).
+You should pretty much never write user-visible text directly into a component. Instead, put it in
+the `LocalizedStrings` object and then use `this.props.translate`.
+
+**Changing the active language**
+
+`LocalizedStrings` exposes a method called `setLanguage`. At present, we just call
+this whenever anyone changes the selected language.
+Specificly, in the `settings.js` reducer whenever a `SET_LANGUAGE` action is dispatched.
+
+**Adding new languages**
+
+It's as easy as adding a new top-level key (e.g. `kr`) and providing
+the relevant translations. If any translation is missing, it will fall
+back to English (I think since it's the first defined key).
+
+### Usage / error tracking
+We use Google Analytics and Rollbar.js. These are configured in index.html,
+and the variables `GA_TRACKING_ID` and `ROLLBAR_ENV` are substituted in by
+environmental variables that are configured on heroku.
+
 ### TODOs / Known tech debt
 - [ ] Material UI icons don't render if you have an ad blocker.
   We should be able to host the font ourselves but may want to only include
   the icons we need.
 - [ ] There's some unused CSS that should be cleaned up.
+- [ ] We should probably have a test that makes sure every key is present
+in every language.
