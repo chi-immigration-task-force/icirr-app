@@ -37,9 +37,19 @@ variable substitution.
 For more details instructions, check out heroku's instructions on how to deploy
 [node.js](https://devcenter.heroku.com/articles/deploying-nodejs).
 
+We have two environments!
+A [staging environment](https://icirr-demo-staging.herokuapp.com/)
+and a [prod environment](https://icirrapp.herokuapp.com/).
+
+ALWAYS DEPLOY TO STAGING FIRST AND TEST BEFORE
+DEPLOYING TO PRODUCTION.
+
 ```sh
-git push heroku master
+git push heroku-staging master
 ```
+
+If that looks okay, you can run the same command
+pushing to the remote you have configured for production.
 
 ## Architecture Overview
 ### Used technologies
